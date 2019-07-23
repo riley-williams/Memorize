@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ImageFeature {
+class ImageFeature: CardFeature {
 	var image:UIImage
-	var showOn:Side
 	
-	init(image:UIImage, showOn:Side) {
+	init(image:UIImage, side:Side) {
 		self.image = image
-		self.showOn = showOn
+		super.init()
+		self.side = side
 	}
 }

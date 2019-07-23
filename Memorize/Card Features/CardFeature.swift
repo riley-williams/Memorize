@@ -11,10 +11,9 @@ import UIKit
 enum Side {
 	case front
 	case back
-	case both
 }
 
 
-protocol CardFeature {
-
+class CardFeature {
+	var side:Side = .front
 }

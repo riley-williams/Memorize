@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */; };
+		BF75913F22E795320052C644 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75913E22E795320052C644 /* DeckView.swift */; };
 		BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */; };
 		BFA855CD22E62B2B0016EE62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CC22E62B2B0016EE62 /* SceneDelegate.swift */; };
 		BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CE22E62B2B0016EE62 /* Memorize.xcdatamodeld */; };
-		BFA855D222E62B2B0016EE62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855D122E62B2B0016EE62 /* ContentView.swift */; };
 		BFA855D422E62B360016EE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFA855D322E62B360016EE62 /* Assets.xcassets */; };
 		BFA855D722E62B360016EE62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFA855D622E62B360016EE62 /* Preview Assets.xcassets */; };
 		BFA855DA22E62B360016EE62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA855D822E62B360016EE62 /* LaunchScreen.storyboard */; };
@@ -44,11 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckDetailView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckDetailView.swift"; sourceTree = "<group>"; };
+		BF75913E22E795320052C644 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckView.swift"; sourceTree = "<group>"; };
 		BFA855C722E62B2B0016EE62 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFA855CC22E62B2B0016EE62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BFA855CF22E62B2B0016EE62 /* Memorize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memorize.xcdatamodel; sourceTree = "<group>"; };
-		BFA855D122E62B2B0016EE62 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFA855D322E62B360016EE62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFA855D622E62B360016EE62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFA855D922E62B360016EE62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -183,8 +185,9 @@
 		BFA8561022E6330C0016EE62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BFA855D122E62B2B0016EE62 /* ContentView.swift */,
 				BFA8560C22E632D70016EE62 /* CardView.swift */,
+				BF75913E22E795320052C644 /* DeckView.swift */,
+				BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,14 +327,15 @@
 				BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */,
 				BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */,
 				BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */,
+				BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */,
 				BFA855FF22E630BB0016EE62 /* Card.swift in Sources */,
 				BFA8560722E631590016EE62 /* CardFeature.swift in Sources */,
 				BFA8560522E631450016EE62 /* User.swift in Sources */,
-				BFA855D222E62B2B0016EE62 /* ContentView.swift in Sources */,
 				BFA855CD22E62B2B0016EE62 /* SceneDelegate.swift in Sources */,
 				BFA8560922E6316A0016EE62 /* ImageFeature.swift in Sources */,
 				BFA8560D22E632D80016EE62 /* CardView.swift in Sources */,
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,
+				BF75913F22E795320052C644 /* DeckView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SwiftUI
 
-class TextFeature {
+class TextFeature: CardFeature, Identifiable {
 	var text:String
-	var showOn:Side
 	
-	init(text:String, showOn:Side) {
+	init(text:String, side:Side) {
 		self.text = text
-		self.showOn = showOn
+		super.init()
+		self.side = side
 	}
 }
