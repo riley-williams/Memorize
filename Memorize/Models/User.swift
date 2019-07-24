@@ -23,6 +23,7 @@ class User {
 	static func testUser(name:String) -> User {
 		let user = User(name:name)
 		
+		//Preview code relies on these
 		let greek = Deck.testDeck(name: "Greek", percentMastery: 0.77)
 		greek.icon = #imageLiteral(resourceName: "Greek")
 		user.decks.append(greek)
@@ -39,7 +40,8 @@ class User {
 		anatomy.icon = #imageLiteral(resourceName: "Heart")
 		user.decks.append(anatomy)
 		
-		
+		let numbers = Deck.testDeck(name: "Numbers", percentMastery: 0.5)
+		user.decks.append(numbers)
 		
 		return user
 	}

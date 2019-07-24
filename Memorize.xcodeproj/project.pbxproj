@@ -10,6 +10,7 @@
 		BF12D16222E7CE0600BCDF49 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12D16122E7CE0600BCDF49 /* RootView.swift */; };
 		BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */; };
 		BF75913F22E795320052C644 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75913E22E795320052C644 /* DeckView.swift */; };
+		BF9C0E9D22E8C874001DAC8B /* DeckIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C0E9C22E8C874001DAC8B /* DeckIcon.swift */; };
 		BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */; };
 		BFA855CD22E62B2B0016EE62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CC22E62B2B0016EE62 /* SceneDelegate.swift */; };
 		BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CE22E62B2B0016EE62 /* Memorize.xcdatamodeld */; };
@@ -49,6 +50,7 @@
 		BF12D16122E7CE0600BCDF49 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/RootView.swift"; sourceTree = "<group>"; };
 		BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckDetailView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckDetailView.swift"; sourceTree = "<group>"; };
 		BF75913E22E795320052C644 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckView.swift"; sourceTree = "<group>"; };
+		BF9C0E9C22E8C874001DAC8B /* DeckIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckIcon.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckIcon.swift"; sourceTree = "<group>"; };
 		BFA855C722E62B2B0016EE62 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFA855CC22E62B2B0016EE62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				BF12D16122E7CE0600BCDF49 /* RootView.swift */,
 				BF75913E22E795320052C644 /* DeckView.swift */,
+				BF9C0E9C22E8C874001DAC8B /* DeckIcon.swift */,
 				BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */,
 				BFA8560C22E632D70016EE62 /* CardView.swift */,
 			);
@@ -340,6 +343,7 @@
 				BFA8560D22E632D80016EE62 /* CardView.swift in Sources */,
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,
 				BF75913F22E795320052C644 /* DeckView.swift in Sources */,
+				BF9C0E9D22E8C874001DAC8B /* DeckIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

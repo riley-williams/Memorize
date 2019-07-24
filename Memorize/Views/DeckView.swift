@@ -30,26 +30,7 @@ struct DeckRow: View {
 	
 	var body: some View {
 		HStack() {
-			if deck.icon != nil {
-				
-				ZStack {
-					RoundedRectangle(cornerRadius: 10)
-						.frame(width: 70, height: 50, alignment: .center)
-						.foregroundColor(.gray)
-						.offset(x: 4, y: -4)
-					Image(uiImage:deck.icon!)
-						.resizable()
-						.scaledToFill()
-						.frame(width: 70.0, height: 50.0)
-						.clipShape(RoundedRectangle(cornerRadius: 8))
-						.overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white, lineWidth: 2))
-				}
-				
-			} else {
-				Image(systemName: "rectangle.on.rectangle.angled.fill")
-					.imageScale(.large)
-					.frame(width: 50, height: 50, alignment: .center)
-			}
+			DeckIcon(deck:deck, width: 70)
 			
 			VStack(alignment: .leading) {
 				Text(deck.name)

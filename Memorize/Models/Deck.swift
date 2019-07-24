@@ -12,7 +12,7 @@ import SwiftUI
 class Deck : Identifiable {
 	var name:String
 	var description:String = ""
-	var icon:UIImage?
+	var icon:UIImage = #imageLiteral(resourceName: "Default")
 	var cards:[Card] = []
 	
 	var mastery:Float {

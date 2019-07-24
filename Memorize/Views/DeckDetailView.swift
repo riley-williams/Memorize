@@ -16,19 +16,8 @@ struct DeckDetailView: View {
 			DeckStatisticsView(deck: deck)
 			
 			HStack(alignment:.top) {
-				ZStack {
-					RoundedRectangle(cornerRadius: 18)
-						.frame(width: 119, height: 85, alignment: .center)
-						.foregroundColor(.gray)
-						.offset(x: 5, y: -5)
-					Image(uiImage:deck.icon!)
-						.resizable()
-						.scaledToFill()
-						.frame(width: 119, height: 85)
-						.clipShape(RoundedRectangle(cornerRadius: 15))
-						.overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.white, lineWidth: 3))
-				}.padding(.leading)
-					.padding(.trailing)
+				DeckIcon(deck: deck, width: 120)
+					.padding([.leading, .trailing])
 				
 				VStack(alignment: .leading) {
 					Text(deck.name)
