@@ -22,8 +22,9 @@ class User {
 	
 	static func testUser(name:String) -> User {
 		let user = User(name:name)
-		for i in 0..<5 {
-			user.decks.append(Deck.testDeck(number: i))
+		let numDecks = 5
+		for i in 0..<numDecks {
+			user.decks.append(Deck.testDeck(name:"Test Deck \(i)", percentMastery: Float(i)/Float(numDecks-1)))
 		}
 		
 		return user

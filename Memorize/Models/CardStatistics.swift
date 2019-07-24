@@ -8,7 +8,7 @@
 
 import UIKit
 
-let masteryPeriod = TimeInterval(7257600) //60*60*24*7*12 12 weeks
+
 
 class CardStatistics {
 	var correctCount:Int = 0
@@ -17,9 +17,11 @@ class CardStatistics {
 	var interval:TimeInterval = 0
 	var dateLastShown:Date?
 	
+	
+	static let masteryPeriod = TimeInterval(7257600) //60*60*24*7*12 12 weeks
 	var mastery:Float {
 		get {
-			return (interval >= masteryPeriod ? 1.0 : Float(interval/masteryPeriod))
+			return (interval >= CardStatistics.masteryPeriod ? 1.0 : Float(interval/CardStatistics.masteryPeriod))
 		}
 	}
 	
@@ -27,11 +29,11 @@ class CardStatistics {
 	func updateStatsCorrect(_ difficulty:Float) {
 		correctCount += 1
 		dateLastShown = Date()
-		#warning("update the time interval here")
+		//TODO: update statistics
 	}
 	
 	func updateStatsIncorrect() {
 		incorrectCount += 1
-		#warning("update the time interval here")
+		//TODO: update statistics
 	}
 }

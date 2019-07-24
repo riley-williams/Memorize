@@ -23,13 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		if let windowScene = scene as? UIWindowScene {
 			let window = UIWindow(windowScene: windowScene)
 			
-			#warning("Remove test view stuff")
-			let frontText = TextFeature(text: "Question", side: .front)
-			let backText = TextFeature(text: "Answer", side: .back)
-			let testCard = Card(features: [frontText, backText])
+			let testUser = User(name: "Riley")
+			let view = RootView(user: testUser)
 			
-			var view = CardView(testCard)
-			view.currentSide = .back
 			
 			
 			window.rootViewController = UIHostingController(rootView: view)
