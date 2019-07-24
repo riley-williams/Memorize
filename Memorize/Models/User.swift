@@ -22,10 +22,24 @@ class User {
 	
 	static func testUser(name:String) -> User {
 		let user = User(name:name)
-		let numDecks = 5
-		for i in 0..<numDecks {
-			user.decks.append(Deck.testDeck(name:"Test Deck \(i)", percentMastery: Float(i)/Float(numDecks-1)))
-		}
+		
+		let greek = Deck.testDeck(name: "Greek", percentMastery: 0.77)
+		greek.icon = #imageLiteral(resourceName: "Greek")
+		user.decks.append(greek)
+		
+		let states = Deck.testDeck(name: "States", percentMastery: 1.0)
+		states.icon = #imageLiteral(resourceName: "States")
+		user.decks.append(states)
+		
+		let mythology = Deck.testDeck(name: "Greek Mythology", percentMastery: 0.2)
+		mythology.icon = #imageLiteral(resourceName: "Mythology")
+		user.decks.append(mythology)
+		
+		let anatomy = Deck.testDeck(name: "Anatomy", percentMastery: 0.0)
+		anatomy.icon = #imageLiteral(resourceName: "Heart")
+		user.decks.append(anatomy)
+		
+		
 		
 		return user
 	}
