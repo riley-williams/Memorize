@@ -29,18 +29,21 @@ struct DeckRow: View {
 	var deck: Deck
 	
 	var body: some View {
-		HStack() {
+		HStack(alignment: .center) {
 			DeckIcon(deck:deck, width: 70)
 			
-			VStack(alignment: .leading) {
+			VStack(alignment: .leading, spacing: 0) {
 				Text(deck.name)
 					.font(.headline)
-				Text("\(Int(deck.mastery*100))%")
-					.font(.subheadline)
-			}.padding()
-			
+				HStack(alignment: .center) {
+					ProgressBarView(size: .small, width: 75, progress: deck.mastery)
+					Text("\(Int(deck.mastery*100))%")
+						.font(.subheadline)
+				}
+				
+			}.padding(.leading)
 			Spacer()
-		}
+		}.frame(height: 70)
 	}
 }
 

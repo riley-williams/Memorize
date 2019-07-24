@@ -13,33 +13,25 @@ struct DeckDetailView: View {
 	
 	var body: some View {
 		VStack(alignment:.leading) {
-			DeckStatisticsView(deck: deck)
 			
 			HStack(alignment:.top) {
 				DeckIcon(deck: deck, width: 120)
 					.padding([.leading, .trailing])
 				
-				VStack(alignment: .leading) {
+				VStack(alignment: .leading, spacing: 10) {
 					Text(deck.name)
 						.font(.title)
 						.bold()
-					Text("\(Int(deck.mastery * 100))%")
-						.font(.headline)
+						
+					HStack {
+						ProgressBarView(size: .regular, width: 100, progress: deck.mastery)
+						Text("\(Int(deck.mastery * 100))%")
+							.font(.headline)
+					}
 				}
 				Spacer()
 			}
 			Spacer()
-		}
-	}
-}
-
-struct DeckStatisticsView: View {
-	var deck:Deck
-	
-	var body: some View {
-		VStack(alignment: .leading) {
-			Text("2 Cards Due")
-			Text("Studied 1 hr")
 		}
 	}
 }
@@ -49,7 +41,7 @@ struct DeckStatisticsView: View {
 struct DeckDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
-		return DeckDetailView(deck: testUser.decks[0])
+		return DeckDetailView(deck: testUser.decks[2])
 	}
 }
 #endif
