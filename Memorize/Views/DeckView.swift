@@ -34,7 +34,7 @@ struct DeckRow: View {
 				Image(uiImage:deck.icon!)
 					.frame(width: 50, height: 50, alignment: .center)
 			} else {
-				Image(systemName: "folder.fill")
+				Image(systemName: "rectangle.on.rectangle.angled.fill")
 					.frame(width: 50, height: 50, alignment: .center)
 			}
 			VStack(alignment: .leading) {

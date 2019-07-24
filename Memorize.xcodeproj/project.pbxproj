@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF12D16222E7CE0600BCDF49 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12D16122E7CE0600BCDF49 /* RootView.swift */; };
 		BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */; };
 		BF75913F22E795320052C644 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75913E22E795320052C644 /* DeckView.swift */; };
 		BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF12D16122E7CE0600BCDF49 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/RootView.swift"; sourceTree = "<group>"; };
 		BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckDetailView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckDetailView.swift"; sourceTree = "<group>"; };
 		BF75913E22E795320052C644 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckView.swift"; sourceTree = "<group>"; };
 		BFA855C722E62B2B0016EE62 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,9 +187,10 @@
 		BFA8561022E6330C0016EE62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BFA8560C22E632D70016EE62 /* CardView.swift */,
+				BF12D16122E7CE0600BCDF49 /* RootView.swift */,
 				BF75913E22E795320052C644 /* DeckView.swift */,
 				BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */,
+				BFA8560C22E632D70016EE62 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */,
 				BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */,
 				BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */,
+				BF12D16222E7CE0600BCDF49 /* RootView.swift in Sources */,
 				BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */,
 				BFA855FF22E630BB0016EE62 /* Card.swift in Sources */,
 				BFA8560722E631590016EE62 /* CardFeature.swift in Sources */,
