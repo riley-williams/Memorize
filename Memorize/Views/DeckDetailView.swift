@@ -24,7 +24,8 @@ struct DeckDetailView: View {
 						.bold()
 						
 					HStack {
-						ProgressBarView(size: .regular, width: 100, progress: deck.mastery)
+						ProgressBarView(size: .regular, progress: deck.mastery)
+							.frame(width:120)
 						Text("\(Int(deck.mastery * 100))%")
 							.font(.headline)
 					}

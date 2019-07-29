@@ -36,7 +36,8 @@ struct DeckRow: View {
 				Text(deck.name)
 					.font(.headline)
 				HStack(alignment: .center) {
-					ProgressBarView(size: .small, width: 75, progress: deck.mastery)
+					ProgressBarView(size: .small, progress: deck.mastery)
+						.frame(width: 75)
 					Text("\(Int(deck.mastery*100))%")
 						.font(.subheadline)
 				}
