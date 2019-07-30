@@ -15,7 +15,7 @@ struct DeckDetailView: View {
 		VStack(alignment:.leading) {
 			
 			HStack(alignment:.top) {
-				DeckIcon(deck: deck, width: 120)
+				DeckIcon(deck: deck, showsDue: false, width: 120)
 					.padding([.leading, .trailing])
 				
 				VStack(alignment: .leading, spacing: 10) {

@@ -13,16 +13,24 @@ struct DeckView: View {
 	
 	var body: some View {
 		NavigationView {
-			List(user.decks) { deck in
-				NavigationLink(destination:DeckDetailView(deck: deck)) {
-					DeckRow(deck:deck)
+			
+			
+			
+			List {
+				
+				ForEach(user.decks) { deck in
+					NavigationLink(destination:DeckDetailView(deck: deck)) {
+						DeckRow(deck:deck)
+					}
 				}
-			}
-			.navigationBarTitle(Text("Decks"))
+				
+			}.navigationBarTitle(Text("Decks"))
+			
 		}
 		
 	}
 }
+
 
 
 struct DeckRow: View {
@@ -35,15 +43,17 @@ struct DeckRow: View {
 			VStack(alignment: .leading, spacing: 0) {
 				Text(deck.name)
 					.font(.headline)
+				
 				HStack(alignment: .center) {
 					ProgressBarView(size: .small, progress: deck.mastery)
 						.frame(width: 75)
 					Text("\(Int(deck.mastery*100))%")
 						.font(.subheadline)
+					Spacer()
 				}
 				
 			}.padding(.leading)
-			Spacer()
+			
 		}.frame(height: 70)
 	}
 }

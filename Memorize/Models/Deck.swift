@@ -16,18 +16,20 @@ class Deck : Identifiable {
 	var cards:[Card] = []
 	
 	var mastery:Float {
-		get {
-			return cards.reduce(0) {
-				$0 + $1.statistics.mastery
-			} / Float(cards.count)
-		}
+		get { cards.reduce(0) { $0 + $1.statistics.mastery } / Float(cards.count) }
+	}
+	var cardsDue:[Card] {
+		get { cards.filter { card in card.statistics.isDue } }
+	}
+	var numCardsDue:Int {
+		get { cards.reduce(0) { result, card in result + (card.statistics.isDue ? 1 : 0) } }
 	}
 	
 	init(name:String) {
 		self.name = name
 	}
 	
-	
+
 	
 	#if DEBUG
 	

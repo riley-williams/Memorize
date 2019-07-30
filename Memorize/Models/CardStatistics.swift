@@ -25,6 +25,15 @@ class CardStatistics {
 		}
 	}
 	
+	var isDue: Bool {
+		get {
+			if dateLastShown != nil {
+				return dateLastShown!.addingTimeInterval(interval) <= Date()
+			} else {
+				return true
+			}
+		}
+	}
 	
 	func updateStatsCorrect(_ difficulty:Float) {
 		correctCount += 1

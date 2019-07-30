@@ -184,8 +184,8 @@
 			children = (
 				BFA8560422E631450016EE62 /* User.swift */,
 				BFA855FE22E630BB0016EE62 /* Card.swift */,
-				BFA8560022E630CA0016EE62 /* Deck.swift */,
 				BFA8560222E631330016EE62 /* CardStatistics.swift */,
+				BFA8560022E630CA0016EE62 /* Deck.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
