@@ -13,24 +13,16 @@ struct DeckView: View {
 	
 	var body: some View {
 		NavigationView {
-			
-			
-			
-			List {
-				
-				ForEach(user.decks) { deck in
-					NavigationLink(destination:DeckDetailView(deck: deck)) {
-						DeckRow(deck:deck)
-					}
+			List(user.decks) { deck in
+				NavigationLink(destination:DeckDetailView(deck: deck)) {
+					DeckRow(deck:deck)
 				}
-				
-			}.navigationBarTitle(Text("Decks"))
-			
+			}
+			.navigationBarTitle(Text("Decks"))
 		}
 		
 	}
 }
-
 
 
 struct DeckRow: View {
@@ -49,6 +41,7 @@ struct DeckRow: View {
 						.frame(width: 75)
 					Text("\(Int(deck.mastery*100))%")
 						.font(.subheadline)
+					
 					Spacer()
 				}
 				
