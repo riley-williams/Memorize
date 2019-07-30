@@ -12,7 +12,7 @@ struct DeckDetailView: View {
 	var deck:Deck
 	
 	var body: some View {
-		VStack(alignment:.leading) {
+		VStack() {
 			
 			HStack(alignment:.top) {
 				DeckIcon(deck: deck, showsDue: false, width: 120)
@@ -32,7 +32,13 @@ struct DeckDetailView: View {
 				}
 				Spacer()
 			}
+			
 			Spacer()
+			
+			NavigationLink(destination: CardPresenterView(cards: deck.cardsDue)) {
+				Text("Study")
+				.font(.headline)
+			}
 		}
 	}
 }

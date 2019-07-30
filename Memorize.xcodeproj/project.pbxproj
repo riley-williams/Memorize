@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF12D16222E7CE0600BCDF49 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12D16122E7CE0600BCDF49 /* RootView.swift */; };
 		BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */; };
-		BF509B0122EFA11B00131FA2 /* CardPresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF509B0022EFA11B00131FA2 /* CardPresenterView.swift */; };
+		BF5FF1B522EFFB1A006A7F5C /* CardPresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF1B422EFFB1A006A7F5C /* CardPresenterView.swift */; };
+		BF5FF1B922F00316006A7F5C /* DeckIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF1B822F002A5006A7F5C /* DeckIcon.swift */; };
+		BF5FF1BA22F00316006A7F5C /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF1B722F002A5006A7F5C /* ProgressBarView.swift */; };
 		BF75913F22E795320052C644 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75913E22E795320052C644 /* DeckView.swift */; };
-		BF9C0E9D22E8C874001DAC8B /* DeckIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C0E9C22E8C874001DAC8B /* DeckIcon.swift */; };
-		BF9C0E9F22E8D175001DAC8B /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C0E9E22E8D175001DAC8B /* ProgressBarView.swift */; };
 		BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */; };
 		BFA855CD22E62B2B0016EE62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CC22E62B2B0016EE62 /* SceneDelegate.swift */; };
 		BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CE22E62B2B0016EE62 /* Memorize.xcdatamodeld */; };
@@ -49,12 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF12D16122E7CE0600BCDF49 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/RootView.swift"; sourceTree = "<group>"; };
 		BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckDetailView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckDetailView.swift"; sourceTree = "<group>"; };
-		BF509B0022EFA11B00131FA2 /* CardPresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardPresenterView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/CardPresenterView.swift"; sourceTree = "<group>"; };
+		BF5FF1B422EFFB1A006A7F5C /* CardPresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardPresenterView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/CardPresenterView.swift"; sourceTree = "<group>"; };
+		BF5FF1B722F002A5006A7F5C /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		BF5FF1B822F002A5006A7F5C /* DeckIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckIcon.swift; sourceTree = "<group>"; };
 		BF75913E22E795320052C644 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckView.swift"; sourceTree = "<group>"; };
-		BF9C0E9C22E8C874001DAC8B /* DeckIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckIcon.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckIcon.swift"; sourceTree = "<group>"; };
-		BF9C0E9E22E8D175001DAC8B /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressBarView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/ProgressBarView.swift"; sourceTree = "<group>"; };
 		BFA855C722E62B2B0016EE62 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFA855CC22E62B2B0016EE62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF5FF1B622F002A5006A7F5C /* Little Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF5FF1B822F002A5006A7F5C /* DeckIcon.swift */,
+				BF5FF1B722F002A5006A7F5C /* ProgressBarView.swift */,
+			);
+			path = "Little Views";
+			sourceTree = "<group>";
+		};
 		BFA855BE22E62B2B0016EE62 = {
 			isa = PBXGroup;
 			children = (
@@ -193,13 +200,11 @@
 		BFA8561022E6330C0016EE62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF12D16122E7CE0600BCDF49 /* RootView.swift */,
 				BF75913E22E795320052C644 /* DeckView.swift */,
 				BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */,
-				BF9C0E9E22E8D175001DAC8B /* ProgressBarView.swift */,
-				BF9C0E9C22E8C874001DAC8B /* DeckIcon.swift */,
+				BF5FF1B422EFFB1A006A7F5C /* CardPresenterView.swift */,
 				BFA8560C22E632D70016EE62 /* CardView.swift */,
-				BF509B0022EFA11B00131FA2 /* CardPresenterView.swift */,
+				BF5FF1B622F002A5006A7F5C /* Little Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,12 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5FF1B922F00316006A7F5C /* DeckIcon.swift in Sources */,
+				BF5FF1BA22F00316006A7F5C /* ProgressBarView.swift in Sources */,
 				BFA8560122E630CA0016EE62 /* Deck.swift in Sources */,
 				BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */,
 				BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */,
 				BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */,
-				BF12D16222E7CE0600BCDF49 /* RootView.swift in Sources */,
-				BF9C0E9F22E8D175001DAC8B /* ProgressBarView.swift in Sources */,
 				BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */,
 				BFA855FF22E630BB0016EE62 /* Card.swift in Sources */,
 				BFA8560722E631590016EE62 /* CardFeature.swift in Sources */,
@@ -350,8 +355,7 @@
 				BFA8560D22E632D80016EE62 /* CardView.swift in Sources */,
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,
 				BF75913F22E795320052C644 /* DeckView.swift in Sources */,
-				BF9C0E9D22E8C874001DAC8B /* DeckIcon.swift in Sources */,
-				BF509B0122EFA11B00131FA2 /* CardPresenterView.swift in Sources */,
+				BF5FF1B522EFFB1A006A7F5C /* CardPresenterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

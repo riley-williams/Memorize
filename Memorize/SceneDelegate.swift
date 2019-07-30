@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			let window = UIWindow(windowScene: windowScene)
 			
 			let testUser = User(name: "Riley")
-			let view = RootView(user: testUser)
+			let view = DeckView(user: testUser)
 			
 			
 			

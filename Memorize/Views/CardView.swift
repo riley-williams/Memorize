@@ -10,28 +10,29 @@ import SwiftUI
 
 struct CardView: View {
 	var card: Card
-	var currentSide: Side = .front
+	@State var showingAnswer: Bool = false
+	var visibleFeatures: [TextFeature] {
+		get { showingAnswer ? card.features : card.frontFeatures }
+	}
 	
 	var body: some View {
-		if currentSide == .front {
-			return VStack {
-				ForEach(card.frontFeatures) {
+		
+		ZStack {
+			Rectangle()
+				.foregroundColor(.white)
+				.border(Color.gray, width: 4, cornerRadius: 20)
+				.padding(5)
+			
+			VStack {
+				ForEach(visibleFeatures) {
 					Text($0.text).padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
 				}
 			}
-		} else {
-			return VStack {
-				ForEach(card.features) {
-					Text($0.text).padding(.all)
-				}
-			}
-		}
-		
+		}.tapAction {
+						self.showingAnswer = !self.showingAnswer
+					}
 	}
-	
-	init(_ card:Card) {
-		self.card = card
-	}
+
 }
 
 
@@ -43,10 +44,11 @@ struct CardView_Previews: PreviewProvider {
 		let backText = TextFeature(text: "Answer", side: .back)
 		let testCard = Card(features: [frontText, backText])
 		
-		var view = CardView(testCard)
-		view.currentSide = .back
-		
-		return view
+		return Group {
+			CardView(card: testCard)
+			
+			CardView(card: testCard, showingAnswer: true)
+		}
 	}
 }
 #endif
