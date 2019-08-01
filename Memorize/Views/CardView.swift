@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CardView: View {
 	var card: Card
-	@State var showingAnswer: Bool = false
+	@Binding var showingAnswer: Bool
 	var visibleFeatures: [TextFeature] {
 		get { showingAnswer ? card.features : card.frontFeatures }
 	}
@@ -38,6 +38,7 @@ struct CardView: View {
 
 #if DEBUG
 struct CardView_Previews: PreviewProvider {
+	@State var isShowingAnswer = true
 	static var previews: some View {
 		
 		let frontText = TextFeature(text: "Question", side: .front)
@@ -45,9 +46,9 @@ struct CardView_Previews: PreviewProvider {
 		let testCard = Card(features: [frontText, backText])
 		
 		return Group {
-			CardView(card: testCard)
+			CardView(card: testCard, showingAnswer: $isShowingAnswer)
 			
-			CardView(card: testCard, showingAnswer: true)
+			CardView(card: testCard, showingAnswer: $isShowingAnswer)
 		}
 	}
 }

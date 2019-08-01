@@ -40,7 +40,7 @@ class User {
 		anatomy.icon = #imageLiteral(resourceName: "Heart")
 		user.decks.append(anatomy)
 		
-		let numbers = Deck.testDeck(name: "Numbers", percentMastery: 0.5)
+		let numbers = Deck.testDeck(name: "This is a stupid long name a user would give a deck to break the UI there really should be no reason to have a deck like this", percentMastery: 0.5)
 		user.decks.append(numbers)
 		
 		return user

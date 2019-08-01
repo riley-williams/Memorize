@@ -35,6 +35,7 @@ struct DeckRow: View {
 			VStack(alignment: .leading, spacing: 0) {
 				Text(deck.name)
 					.font(.headline)
+                    .lineLimit(2)
 				
 				HStack(alignment: .center) {
 					ProgressBarView(size: .small, progress: deck.mastery)

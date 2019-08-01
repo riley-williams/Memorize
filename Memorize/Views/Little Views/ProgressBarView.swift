@@ -16,8 +16,9 @@ enum ProgressBarViewSize {
 struct ProgressBarView: View {
 	var size:ProgressBarViewSize = .regular
 	@State var progress:Float = 0.0
+    @State var barColor:Color = .yellow
 	
-	private var height:Length {
+	private var height:CGFloat {
 		get {
 			switch size {
 				case .small:
@@ -28,7 +29,7 @@ struct ProgressBarView: View {
 		}
 		
 	}
-	private var progressOffset:Length {
+	private var progressOffset:CGFloat {
 		get {
 			switch size {
 				case .small:
@@ -39,7 +40,7 @@ struct ProgressBarView: View {
 		}
 		
 	}
-	private var progressHighlightOffset:Length {
+	private var progressHighlightOffset:CGFloat {
 		get {
 			switch size {
 				case .small:
@@ -61,20 +62,17 @@ struct ProgressBarView: View {
 				
 				RoundedRectangle(cornerRadius: (self.height-self.progressOffset*2)/2) //bar
 					.frame(width: self.interpolate(self.progress, a:self.height-self.progressOffset*2.0, b:geometry.size.width-self.progressOffset*2.0), height: self.height-self.progressOffset*2)
-					.foregroundColor(.green)
+                    .foregroundColor(self.barColor)
 					.offset(x: self.progressOffset, y: self.progressOffset)
 				
-				RoundedRectangle(cornerRadius: self.height/8) //bar highlight
-					.frame(width: self.interpolate(self.progress, a: self.height/4, b: geometry.size.width-self.progressHighlightOffset*2-self.progressOffset*2), height: self.height/4)
-					.foregroundColor(.white)
-					.offset(x: self.progressHighlightOffset+self.progressOffset, y: self.progressHighlightOffset)
+				
 			}.frame(height:self.height)
 		}.frame(height:self.height)
 			.accessibility(label: Text("\(progress)% complete"))
 	}
 	
-	private func interpolate(_ percent:Float, a:Length, b:Length) -> Length {
-		return a + (b-a)*Length(percent)
+	private func interpolate(_ percent:Float, a:CGFloat, b:CGFloat) -> CGFloat {
+		return a + (b-a)*CGFloat(percent)
 	}
 }
 

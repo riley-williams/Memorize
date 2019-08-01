@@ -20,17 +20,19 @@ struct DeckDetailView: View {
 				
 				VStack(alignment: .leading, spacing: 10) {
 					Text(deck.name)
-						.font(.title)
+						.font(.headline)
 						.bold()
-						
+                        .lineLimit(2)
+                    
 					HStack {
 						ProgressBarView(size: .regular, progress: deck.mastery)
-							.frame(width:120)
+							.frame(width:100)
 						Text("\(Int(deck.mastery * 100))%")
 							.font(.headline)
+                        Spacer()
 					}
 				}
-				Spacer()
+				
 			}
 			
 			Spacer()

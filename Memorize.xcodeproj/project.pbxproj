@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */; };
-		BF5FF1B522EFFB1A006A7F5C /* CardPresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF1B422EFFB1A006A7F5C /* CardPresenterView.swift */; };
 		BF5FF1B922F00316006A7F5C /* DeckIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF1B822F002A5006A7F5C /* DeckIcon.swift */; };
 		BF5FF1BA22F00316006A7F5C /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF1B722F002A5006A7F5C /* ProgressBarView.swift */; };
-		BF75913F22E795320052C644 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75913E22E795320052C644 /* DeckView.swift */; };
 		BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */; };
 		BFA855CD22E62B2B0016EE62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CC22E62B2B0016EE62 /* SceneDelegate.swift */; };
 		BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA855CE22E62B2B0016EE62 /* Memorize.xcdatamodeld */; };
@@ -27,7 +24,10 @@
 		BFA8560722E631590016EE62 /* CardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA8560622E631590016EE62 /* CardFeature.swift */; };
 		BFA8560922E6316A0016EE62 /* ImageFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA8560822E6316A0016EE62 /* ImageFeature.swift */; };
 		BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA8560A22E6317A0016EE62 /* TextFeature.swift */; };
-		BFA8560D22E632D80016EE62 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA8560C22E632D70016EE62 /* CardView.swift */; };
+		E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F63F22F35EF200E7EF93 /* DeckView.swift */; };
+		E411F64222F35F0600E7EF93 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64122F35F0600E7EF93 /* DeckDetailView.swift */; };
+		E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64322F35F1700E7EF93 /* CardPresenterView.swift */; };
+		E411F64622F35F2B00E7EF93 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64522F35F2B00E7EF93 /* Presenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckDetailView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckDetailView.swift"; sourceTree = "<group>"; };
-		BF5FF1B422EFFB1A006A7F5C /* CardPresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardPresenterView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/CardPresenterView.swift"; sourceTree = "<group>"; };
 		BF5FF1B722F002A5006A7F5C /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		BF5FF1B822F002A5006A7F5C /* DeckIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckIcon.swift; sourceTree = "<group>"; };
-		BF75913E22E795320052C644 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeckView.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/riley/Library/CloudStorage/iCloud Drive/Development/iOS/Memorize/Memorize/Views/DeckView.swift"; sourceTree = "<group>"; };
 		BFA855C722E62B2B0016EE62 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA855CA22E62B2B0016EE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFA855CC22E62B2B0016EE62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +72,10 @@
 		BFA8560622E631590016EE62 /* CardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFeature.swift; sourceTree = "<group>"; };
 		BFA8560822E6316A0016EE62 /* ImageFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeature.swift; sourceTree = "<group>"; };
 		BFA8560A22E6317A0016EE62 /* TextFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFeature.swift; sourceTree = "<group>"; };
-		BFA8560C22E632D70016EE62 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		E411F63F22F35EF200E7EF93 /* DeckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
+		E411F64122F35F0600E7EF93 /* DeckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
+		E411F64322F35F1700E7EF93 /* CardPresenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresenterView.swift; sourceTree = "<group>"; };
+		E411F64522F35F2B00E7EF93 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +193,7 @@
 				BFA855FE22E630BB0016EE62 /* Card.swift */,
 				BFA8560222E631330016EE62 /* CardStatistics.swift */,
 				BFA8560022E630CA0016EE62 /* Deck.swift */,
+				E411F64522F35F2B00E7EF93 /* Presenter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,10 +201,9 @@
 		BFA8561022E6330C0016EE62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF75913E22E795320052C644 /* DeckView.swift */,
-				BF5090FB22E7C1B5006E7BE7 /* DeckDetailView.swift */,
-				BF5FF1B422EFFB1A006A7F5C /* CardPresenterView.swift */,
-				BFA8560C22E632D70016EE62 /* CardView.swift */,
+				E411F63F22F35EF200E7EF93 /* DeckView.swift */,
+				E411F64122F35F0600E7EF93 /* DeckDetailView.swift */,
+				E411F64322F35F1700E7EF93 /* CardPresenterView.swift */,
 				BF5FF1B622F002A5006A7F5C /* Little Views */,
 			);
 			path = Views;
@@ -342,20 +342,20 @@
 			files = (
 				BF5FF1B922F00316006A7F5C /* DeckIcon.swift in Sources */,
 				BF5FF1BA22F00316006A7F5C /* ProgressBarView.swift in Sources */,
+				E411F64622F35F2B00E7EF93 /* Presenter.swift in Sources */,
+				E411F64222F35F0600E7EF93 /* DeckDetailView.swift in Sources */,
 				BFA8560122E630CA0016EE62 /* Deck.swift in Sources */,
 				BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */,
 				BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */,
 				BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */,
-				BF5090FC22E7C1B6006E7BE7 /* DeckDetailView.swift in Sources */,
 				BFA855FF22E630BB0016EE62 /* Card.swift in Sources */,
 				BFA8560722E631590016EE62 /* CardFeature.swift in Sources */,
 				BFA8560522E631450016EE62 /* User.swift in Sources */,
 				BFA855CD22E62B2B0016EE62 /* SceneDelegate.swift in Sources */,
 				BFA8560922E6316A0016EE62 /* ImageFeature.swift in Sources */,
-				BFA8560D22E632D80016EE62 /* CardView.swift in Sources */,
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,
-				BF75913F22E795320052C644 /* DeckView.swift in Sources */,
-				BF5FF1B522EFFB1A006A7F5C /* CardPresenterView.swift in Sources */,
+				E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */,
+				E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Memorize/Memorize.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Memorize/Preview\\ Content";
 				DEVELOPMENT_TEAM = BD5L3C9JKH;
 				ENABLE_PREVIEWS = YES;
@@ -532,6 +533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riley-williams.Memorize";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -543,6 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Memorize/Memorize.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Memorize/Preview\\ Content";
 				DEVELOPMENT_TEAM = BD5L3C9JKH;
 				ENABLE_PREVIEWS = YES;
@@ -553,6 +556,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riley-williams.Memorize";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
