@@ -25,17 +25,8 @@ struct DeckIcon: View {
                 .frame(width: width, height: height)
                 .drawingGroup(opaque: true) //fill background of transparent images
                 .clipShape(RoundedRectangle(cornerRadius: radius - separation))
-                .shadow(radius: 3.0)
+                
             //.overlay(RoundedRectangle(cornerRadius: radius - separation).stroke(Color.white, lineWidth: 2.0))
-            
-            
-            
-            VStack {
-                Spacer()
-                ProgressBarView(size: .small, progress: deck.mastery, barColor: .yellow, isRounded: false)
-                    
-            }.cornerRadius(radius - separation)
-            
             
             if deck.numCardsDue > 0 && showsDue {
                 Text("\(deck.numCardsDue)")

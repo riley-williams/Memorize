@@ -29,25 +29,31 @@ struct DeckRow: View {
 	var deck: Deck
 	
 	var body: some View {
-		HStack(alignment: .center) {
-			DeckIcon(deck:deck, width: 70)
-			
-			VStack(alignment: .leading, spacing: 0) {
-				Text(deck.name)
-					.font(.headline)
-                    .lineLimit(2)
-				
-				HStack(alignment: .center) {
-					ProgressBarView(size: .small, progress: deck.mastery)
-						.frame(width: 75)
-					Text("\(Int(deck.mastery*100))%")
-						.font(.subheadline)
-					
-					Spacer()
+		ZStack {
+			ZStack(alignment: .topLeading) {
+				GeometryReader { geometry in
+					RoundedRectangle(cornerRadius: 15)
+						.foregroundColor(.white)
+					Rectangle()
+						.frame(width:geometry.size.width*CGFloat(self.deck.mastery))
+						.foregroundColor(.blue)
 				}
 				
-			}.padding(.leading)
+			}.cornerRadius(15)
+			.shadow(radius: 5)
+				.padding(.vertical, 5)
 			
+			
+			HStack(alignment: .center) {
+				DeckIcon(deck:deck, width: 70)
+					.padding()
+				VStack(alignment: .leading, spacing: 0) {
+					Text(deck.name)
+						.font(.headline)
+						.lineLimit(2)
+				}
+				Spacer()
+			}
 		}.frame(height: 70)
 	}
 }
@@ -63,6 +69,7 @@ struct DeckView_Previews: PreviewProvider {
 			
 			DeckRow(deck: testUser.decks[0])
 				.previewLayout(.fixed(width: 300, height: 70))
+			
 		}
 	}
 }

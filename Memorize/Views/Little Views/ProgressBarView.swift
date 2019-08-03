@@ -30,29 +30,7 @@ struct ProgressBarView: View {
         }
         
     }
-    private var progressOffset:CGFloat {
-        get {
-            switch size {
-            case .small:
-                return 1.5
-            case .regular:
-                return 2
-            }
-        }
-        
-    }
-    private var progressHighlightOffset:CGFloat {
-        get {
-            switch size {
-            case .small:
-                return 2
-            case .regular:
-                return 3
-            }
-        }
-        
-    }
-    
+
     var body: some View {
         return GeometryReader { geometry in
             
