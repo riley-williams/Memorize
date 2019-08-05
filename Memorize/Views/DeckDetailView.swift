@@ -50,7 +50,9 @@ struct DeckDetailView: View {
 struct DeckDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
-		return DeckDetailView(deck: testUser.decks[2])
+		return NavigationView {
+			DeckDetailView(deck: testUser.decks[2])
+		}
 	}
 }
 #endif

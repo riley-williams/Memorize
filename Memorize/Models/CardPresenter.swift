@@ -23,13 +23,15 @@ class CardPresenter : ObservableObject {
 	}
 	
 	func updateCurrentCard(_ difficulty:CardStatistics.Difficulty) {
-		currentCard.statistics.updateStats(difficulty)
-		if difficulty != .wrong {
-			completedCards.append(cards.removeFirst())
-		} else {
-			cards.append(cards.removeFirst())
+		if areCardsRemaining {
+			currentCard.statistics.updateStats(difficulty)
+			if difficulty != .wrong {
+				completedCards.append(cards.removeFirst())
+			} else {
+				cards.append(cards.removeFirst())
+			}
+			objectWillChange.send(self)
 		}
-		objectWillChange.send(self)
 	}
 	
 	#if DEBUG

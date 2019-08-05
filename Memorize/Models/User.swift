@@ -32,7 +32,7 @@ class User {
 		states.icon = #imageLiteral(resourceName: "States")
 		user.decks.append(states)
 		
-		let mythology = Deck.testDeck(name: "Greek Mythology", percentMastery: 0.2, numCards: 7)
+		let mythology = Deck.testDeck(name: "Greek Mythology", percentMastery: 0.2, numCards: 1)
 		mythology.icon = #imageLiteral(resourceName: "Mythology")
 		user.decks.append(mythology)
 		

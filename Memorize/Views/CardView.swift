@@ -43,10 +43,14 @@ struct CardView: View {
 
 #if DEBUG
 struct CardView_Previews: PreviewProvider {
+	
     static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
-		let presenter = CardPresenter(testUser.decks[0].cardsDue)
-		return CardPresenterView(presenter: presenter)
+		return Group {
+			CardView(card:testUser.decks[0].cards[0], showingAnswer: .constant(false))
+			CardView(card:testUser.decks[0].cards[0], showingAnswer: .constant(true))
+				.environment(\.colorScheme, .dark)
+		}
     }
 }
 #endif

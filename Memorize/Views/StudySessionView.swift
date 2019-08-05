@@ -29,7 +29,7 @@ struct StudySessionView: View {
 struct StudySessionView_Previews: PreviewProvider {
 	static var previews: some View {
 		let testUser = User.testUser(name: "Tester")
-		return StudySessionView(cards: testUser.decks[0].cardsDue)
+		return StudySessionView(cards: testUser.decks[2].cardsDue)
 	}
 }
 #endif
