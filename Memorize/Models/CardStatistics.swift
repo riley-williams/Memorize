@@ -17,6 +17,12 @@ class CardStatistics {
 	var interval:TimeInterval = 0
 	var dateLastShown:Date?
 	
+	enum Difficulty {
+		case easy
+		case correct
+		case hard
+		case wrong
+	}
 	
 	static let masteryPeriod = TimeInterval(7257600) //60*60*24*7*12 12 weeks
 	var mastery:Float {
@@ -35,14 +41,8 @@ class CardStatistics {
 		}
 	}
 	
-	func updateStatsCorrect(_ difficulty:Float) {
-		correctCount += 1
+	func updateStats(_ difficulty:Difficulty) {
 		dateLastShown = Date()
-		//TODO: update statistics
-	}
-	
-	func updateStatsIncorrect() {
-		incorrectCount += 1
 		//TODO: update statistics
 	}
 }

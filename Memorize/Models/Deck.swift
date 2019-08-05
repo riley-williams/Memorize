@@ -33,11 +33,11 @@ class Deck : Identifiable {
 	
 	#if DEBUG
 	
-	static func testDeck(name:String, percentMastery:Float) -> Deck {
+	static func testDeck(name:String, percentMastery:Float, numCards:Int) -> Deck {
 		let deck:Deck = Deck(name: name)
 		deck.description = "This is a short description of what cards are in\(deck.name)."
-		for _ in 0..<5 {
-			let c = Card.testCard()
+		for i in 0..<numCards {
+			let c = Card.testCard(number: i)
 			c.statistics.interval = TimeInterval(percentMastery * Float(CardStatistics.masteryPeriod))
 			deck.cards.append(c)
 		}

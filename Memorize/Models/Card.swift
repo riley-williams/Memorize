@@ -25,15 +25,15 @@ class Card {
 		self.features = features
 	}
 	
+	static var blank:Card { get { return Card(features: []) } }
+	
 	
 	
 	#if DEBUG
-	
-	static func testCard() -> Card {
-		let front = TextFeature(text: "Test Front", side: .front)
-		let back = TextFeature(text: "Test Answer", side: .back)
+	static func testCard(number:Int) -> Card {
+		let front = TextFeature(text: "Test card \(number) front", side: .front)
+		let back = TextFeature(text: "Test card \(number) answer", side: .back)
 		return Card(features: [front, back])
 	}
-	
 	#endif
 }

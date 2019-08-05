@@ -9,61 +9,101 @@
 import SwiftUI
 
 struct CardPresenterView: View {
-	var cards:[Card]
+	private var presenter:CardPresenter
 	@GestureState var dragInProgress:Bool = false
-	@State private var cardTranslation:CGFloat = 0
-	@State private var isShowingAnswer:Bool = false
+	@State private var offset:CGSize = .zero
+	@State var showingAnswer:Bool = false
+	@State var dragSufficient:Bool = false
+	
+	let dismissOffset:CGFloat = 125 //distance from center to swipe answer
+	let motionReduction:CGFloat = 0.7 //% reduction in motion after drag completion
+	let unansweredReduction:CGFloat = 0.9 //% reduction in motion before answer is shown
 	
 	var body: some View {
-		VStack {
-			CardView(card:cards[0], showingAnswer: $isShowingAnswer)
-				.foregroundColor(dragInProgress ? .green : .white)
-				.offset(x:cardTranslation)
-				.gesture(DragGesture(minimumDistance: 0, coordinateSpace: .global)
-					.updating($dragInProgress) { value, state, _ in
-						state = true
-						self.cardTranslation = value.translation.width
-				}.onEnded { value in
-					withAnimation(.easeIn) {
-						self.cardTranslation = -400
+		let drag = DragGesture(minimumDistance:0)
+			.onChanged {
+				var w = $0.translation.width
+				if self.showingAnswer {
+					if w < -self.dismissOffset {
+						w = w - (w + self.dismissOffset)*self.motionReduction
+						self.dragSufficient = true
+					} else if w > self.dismissOffset {
+						w = w - (w - self.dismissOffset)*self.motionReduction
+						self.dragSufficient = true
+					} else {
+						self.dragSufficient = false
 					}
-					
-				})
-			
-			AnswerView()
+				} else {
+					w = w*(1-self.unansweredReduction)
+					self.dragSufficient = false
+				}
+				self.offset = CGSize(width:w, height: 0)
 		}
-	}
-}
-
-
-struct CardView: View {
-	var card: Card
-	@Binding var showingAnswer: Bool
-	var visibleFeatures: [TextFeature] {
-		get { showingAnswer ? card.features : card.frontFeatures }
-	}
-	
-	var body: some View {
-		
-		ZStack {
-            RoundedRectangle(cornerRadius: 20)
-				.border(Color.gray, width: 4)
-				.foregroundColor(.white)
-				.padding()
-			
-			VStack {
-				ForEach(visibleFeatures) {
-                    Text($0.text).padding(.all)
+		.onEnded {
+			if self.showingAnswer {
+				if $0.translation.width < -self.dismissOffset {
+					self.updateCard(difficulty: .wrong)
+				} else if $0.translation.width > self.dismissOffset {
+					self.updateCard(difficulty: .correct)
 				}
 			}
-        }.onTapGesture {
-			self.showingAnswer = !self.showingAnswer
+			self.dragSufficient = false
+			self.offset = .zero
+		}
+		
+		
+		return VStack {
+			if presenter.areCardsRemaining {
+				ZStack {
+					HStack {
+						Image(systemName: (dragSufficient ? "checkmark.circle.fill" : "checkmark.circle"))
+							.font(.system(size: 100, weight: .bold))
+							.foregroundColor(dragSufficient ? .green : .black)
+							.padding()
+						Spacer()
+						Image(systemName: (dragSufficient ? "x.circle.fill" : "x.circle"))
+							.font(.system(size: 100, weight: .bold))
+							.foregroundColor(dragSufficient ? .red : .black)
+							.padding()
+					}
+					
+					//current card
+					CardView(card:presenter.currentCard, showingAnswer: $showingAnswer)
+						.offset(x:offset.width)
+						.gesture(drag)
+						.animation(
+							Animation.spring(dampingFraction: 0.5)
+								.speed(2))
+					
+					Spacer()
+					
+				}.layoutPriority(1)
+				
+				AnswerView(responder: updateCard(difficulty:), showingAnswer: $showingAnswer)
+			} else {
+				PostSessionStatisticsView(presenter: presenter)
+			}
 		}
 	}
 	
+	init(cards:[Card]) {
+		self.presenter = CardPresenter(cards)
+	}
+	
+	func updateCard(difficulty:CardStatistics.Difficulty) {
+		presenter.updateCurrentCard(difficulty)
+		self.showingAnswer = false
+		self.dragSufficient = true
+	}
 }
 
+
+
+
 struct AnswerView: View {
+	var responder:(CardStatistics.Difficulty)->()
+	@Binding var showingAnswer:Bool
+	
 	var body: some View {
 		VStack {
 			HStack {
@@ -80,29 +120,30 @@ struct AnswerView: View {
 				
 				Text("Correct")
 					.font(.headline)
-					.foregroundColor(.blue)
+					.foregroundColor(.green)
 				Image(systemName: "arrow.turn.up.right")
 					.font(Font.headline.weight(.bold))
-					.foregroundColor(.blue)
+					.foregroundColor(.green)
 					.padding(.trailing)
 			}
 			
 			HStack {
-				Button(action: {}) {
+				Button(action: { self.responder(.hard) }) {
 					ZStack {
 						Rectangle()
-							.foregroundColor(.orange)
+							.foregroundColor(showingAnswer ? .orange : .gray)
 						Text("Hard")
 							.font(.headline)
 							.foregroundColor(.white)
 					}
-				}.cornerRadius(15)
+					}.cornerRadius(15)
 					.padding(.leading)
 				
-				Button(action: {}) {
+				
+				Button(action: { self.responder(.easy) }) {
 					ZStack {
 						Rectangle()
-							.foregroundColor(.green)
+							.foregroundColor(showingAnswer ? .blue : .gray)
 						Text("Easy")
 							.font(.headline)
 							.foregroundColor(.white)

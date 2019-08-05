@@ -27,7 +27,9 @@
 		E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F63F22F35EF200E7EF93 /* DeckView.swift */; };
 		E411F64222F35F0600E7EF93 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64122F35F0600E7EF93 /* DeckDetailView.swift */; };
 		E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64322F35F1700E7EF93 /* CardPresenterView.swift */; };
-		E411F64622F35F2B00E7EF93 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64522F35F2B00E7EF93 /* Presenter.swift */; };
+		E42CADE422F637C800D51C18 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42CADE322F637C800D51C18 /* CardView.swift */; };
+		E453B38D22F786C600F53EB6 /* CardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38C22F786C600F53EB6 /* CardPresenter.swift */; };
+		E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +77,9 @@
 		E411F63F22F35EF200E7EF93 /* DeckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		E411F64122F35F0600E7EF93 /* DeckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
 		E411F64322F35F1700E7EF93 /* CardPresenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresenterView.swift; sourceTree = "<group>"; };
-		E411F64522F35F2B00E7EF93 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		E42CADE322F637C800D51C18 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		E453B38C22F786C600F53EB6 /* CardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresenter.swift; sourceTree = "<group>"; };
+		E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionStatisticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,11 +193,11 @@
 		BFA8560F22E633000016EE62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E453B38C22F786C600F53EB6 /* CardPresenter.swift */,
 				BFA8560422E631450016EE62 /* User.swift */,
 				BFA855FE22E630BB0016EE62 /* Card.swift */,
 				BFA8560222E631330016EE62 /* CardStatistics.swift */,
 				BFA8560022E630CA0016EE62 /* Deck.swift */,
-				E411F64522F35F2B00E7EF93 /* Presenter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +208,8 @@
 				E411F63F22F35EF200E7EF93 /* DeckView.swift */,
 				E411F64122F35F0600E7EF93 /* DeckDetailView.swift */,
 				E411F64322F35F1700E7EF93 /* CardPresenterView.swift */,
+				E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */,
+				E42CADE322F637C800D51C18 /* CardView.swift */,
 				BF5FF1B622F002A5006A7F5C /* Little Views */,
 			);
 			path = Views;
@@ -342,7 +348,6 @@
 			files = (
 				BF5FF1B922F00316006A7F5C /* DeckIcon.swift in Sources */,
 				BF5FF1BA22F00316006A7F5C /* ProgressBarView.swift in Sources */,
-				E411F64622F35F2B00E7EF93 /* Presenter.swift in Sources */,
 				E411F64222F35F0600E7EF93 /* DeckDetailView.swift in Sources */,
 				BFA8560122E630CA0016EE62 /* Deck.swift in Sources */,
 				BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */,
@@ -353,8 +358,11 @@
 				BFA8560522E631450016EE62 /* User.swift in Sources */,
 				BFA855CD22E62B2B0016EE62 /* SceneDelegate.swift in Sources */,
 				BFA8560922E6316A0016EE62 /* ImageFeature.swift in Sources */,
+				E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */,
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,
 				E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */,
+				E42CADE422F637C800D51C18 /* CardView.swift in Sources */,
+				E453B38D22F786C600F53EB6 /* CardPresenter.swift in Sources */,
 				E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
