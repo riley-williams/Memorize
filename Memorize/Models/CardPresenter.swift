@@ -7,11 +7,12 @@
 //
 
 import SwiftUI
+import Combine
 
-class CardPresenter {
+class CardPresenter : ObservableObject {
 	var cards:[Card]
 	private var completedCards:[Card] = []
-	
+	let objectWillChange = PassthroughSubject<CardPresenter, Never>()
 	var currentCard:Card { get { cards[0] } }
 	var areCardsRemaining:Bool { get { cards.count >= 1 } }
 	
@@ -26,6 +27,7 @@ class CardPresenter {
 		} else {
 			cards.append(cards.removeFirst())
 		}
+		objectWillChange.send(self)
 	}
 	
 	#if DEBUG

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CardPresenterView: View {
-	private var presenter:CardPresenter
+	@ObservedObject private var presenter:CardPresenter
 	@GestureState var dragInProgress:Bool = false
 	@State private var offset:CGSize = .zero
 	@State var showingAnswer:Bool = false
@@ -93,7 +93,7 @@ struct CardPresenterView: View {
 	func updateCard(difficulty:CardStatistics.Difficulty) {
 		presenter.updateCurrentCard(difficulty)
 		self.showingAnswer = false
-		self.dragSufficient = true
+		self.dragSufficient = false
 	}
 }
 
@@ -136,8 +136,10 @@ struct AnswerView: View {
 							.font(.headline)
 							.foregroundColor(.white)
 					}
-					}.cornerRadius(15)
+				}.disabled(!self.showingAnswer)
+					.cornerRadius(15)
 					.padding(.leading)
+				
 				
 				
 				Button(action: { self.responder(.easy) }) {
@@ -148,7 +150,8 @@ struct AnswerView: View {
 							.font(.headline)
 							.foregroundColor(.white)
 					}
-				}.cornerRadius(15)
+				}.disabled(!self.showingAnswer)
+					.cornerRadius(15)
 					.padding(.trailing)
 				
 			}.frame(height: 50)
