@@ -45,7 +45,8 @@ struct CardView: View {
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
-		return CardPresenterView(cards: testUser.decks[0].cardsDue)
+		let presenter = CardPresenter(testUser.decks[0].cardsDue)
+		return CardPresenterView(presenter: presenter)
     }
 }
 #endif

@@ -30,6 +30,7 @@
 		E42CADE422F637C800D51C18 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42CADE322F637C800D51C18 /* CardView.swift */; };
 		E453B38D22F786C600F53EB6 /* CardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38C22F786C600F53EB6 /* CardPresenter.swift */; };
 		E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */; };
+		E453B39122F89AF400F53EB6 /* StudySessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B39022F89AF400F53EB6 /* StudySessionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		E42CADE322F637C800D51C18 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E453B38C22F786C600F53EB6 /* CardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresenter.swift; sourceTree = "<group>"; };
 		E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionStatisticsView.swift; sourceTree = "<group>"; };
+		E453B39022F89AF400F53EB6 /* StudySessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			children = (
 				E411F63F22F35EF200E7EF93 /* DeckView.swift */,
 				E411F64122F35F0600E7EF93 /* DeckDetailView.swift */,
+				E453B39022F89AF400F53EB6 /* StudySessionView.swift */,
 				E411F64322F35F1700E7EF93 /* CardPresenterView.swift */,
 				E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */,
 				E42CADE322F637C800D51C18 /* CardView.swift */,
@@ -357,6 +360,7 @@
 				BFA8560722E631590016EE62 /* CardFeature.swift in Sources */,
 				BFA8560522E631450016EE62 /* User.swift in Sources */,
 				BFA855CD22E62B2B0016EE62 /* SceneDelegate.swift in Sources */,
+				E453B39122F89AF400F53EB6 /* StudySessionView.swift in Sources */,
 				BFA8560922E6316A0016EE62 /* ImageFeature.swift in Sources */,
 				E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */,
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,

@@ -12,9 +12,11 @@ import Combine
 class CardPresenter : ObservableObject {
 	var cards:[Card]
 	private var completedCards:[Card] = []
-	let objectWillChange = PassthroughSubject<CardPresenter, Never>()
-	var currentCard:Card { get { cards[0] } }
+	var currentCard:Card { get { cards.count > 0 ? cards[0] : Card.blank } }
 	var areCardsRemaining:Bool { get { cards.count >= 1 } }
+	
+	let objectWillChange = PassthroughSubject<CardPresenter, Never>()
+	
 	
 	init(_ cards:[Card]) {
 		self.cards = cards

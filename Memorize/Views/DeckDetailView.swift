@@ -37,7 +37,7 @@ struct DeckDetailView: View {
 			
 			Spacer()
 			
-			NavigationLink(destination: CardPresenterView(cards: deck.cardsDue)) {
+			NavigationLink(destination: StudySessionView(cards: deck.cardsDue)) {
 				Text("Study")
 				.font(.headline)
 			}

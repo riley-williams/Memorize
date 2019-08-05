@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CardPresenterView: View {
-	@ObservedObject private var presenter:CardPresenter
+	@ObservedObject var presenter:CardPresenter
 	@GestureState var dragInProgress:Bool = false
 	@State private var offset:CGSize = .zero
 	@State var showingAnswer:Bool = false
@@ -53,41 +53,33 @@ struct CardPresenterView: View {
 		
 		
 		return VStack {
-			if presenter.areCardsRemaining {
-				ZStack {
-					HStack {
-						Image(systemName: (dragSufficient ? "checkmark.circle.fill" : "checkmark.circle"))
-							.font(.system(size: 100, weight: .bold))
-							.foregroundColor(dragSufficient ? .green : .black)
-							.padding()
-						Spacer()
-						Image(systemName: (dragSufficient ? "x.circle.fill" : "x.circle"))
-							.font(.system(size: 100, weight: .bold))
-							.foregroundColor(dragSufficient ? .red : .black)
-							.padding()
-					}
-					
-					//current card
-					CardView(card:presenter.currentCard, showingAnswer: $showingAnswer)
-						.offset(x:offset.width)
-						.gesture(drag)
-						.animation(
-							Animation.spring(dampingFraction: 0.5)
-								.speed(2))
-					
+			ZStack {
+				HStack {
+					Image(systemName: (dragSufficient ? "checkmark.circle.fill" : "checkmark.circle"))
+						.font(.system(size: 100, weight: .bold))
+						.foregroundColor(showingAnswer ? (dragSufficient ? .green : .black) : .gray)
+						.padding()
 					Spacer()
-					
-				}.layoutPriority(1)
+					Image(systemName: (dragSufficient ? "x.circle.fill" : "x.circle"))
+						.font(.system(size: 100, weight: .bold))
+						.foregroundColor(showingAnswer ? (dragSufficient ? .red : .black) : .gray)
+						.padding()
+				}
 				
-				AnswerView(responder: updateCard(difficulty:), showingAnswer: $showingAnswer)
-			} else {
-				PostSessionStatisticsView(presenter: presenter)
-			}
+				//current card
+				CardView(card:presenter.currentCard, showingAnswer: $showingAnswer)
+					.offset(x:offset.width)
+					.gesture(drag)
+					.animation(
+						Animation.spring(dampingFraction: 0.5)
+							.speed(2))
+				
+				Spacer()
+				
+			}.layoutPriority(1)
+			
+			AnswerView(responder: updateCard(difficulty:), showingAnswer: $showingAnswer)
 		}
-	}
-	
-	init(cards:[Card]) {
-		self.presenter = CardPresenter(cards)
 	}
 	
 	func updateCard(difficulty:CardStatistics.Difficulty) {
@@ -110,20 +102,20 @@ struct AnswerView: View {
 				
 				Image(systemName: "arrow.turn.up.left")
 					.font(Font.headline.weight(.bold))
-					.foregroundColor(.red)
+					.foregroundColor(showingAnswer ? .red : .gray)
 					.padding(.leading)
 				Text("Wrong")
 					.font(.headline)
-					.foregroundColor(.red)
+					.foregroundColor(showingAnswer ? .red : .gray)
 				
 				Spacer()
 				
 				Text("Correct")
 					.font(.headline)
-					.foregroundColor(.green)
+					.foregroundColor(showingAnswer ? .green : .gray)
 				Image(systemName: "arrow.turn.up.right")
 					.font(Font.headline.weight(.bold))
-					.foregroundColor(.green)
+					.foregroundColor(showingAnswer ? .green : .gray)
 					.padding(.trailing)
 			}
 			
@@ -164,7 +156,8 @@ struct AnswerView: View {
 struct CardPresenterView_Previews: PreviewProvider {
 	static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
-		return CardPresenterView(cards: testUser.decks[0].cards)
+		let presenter = CardPresenter(testUser.decks[0].cardsDue)
+		return CardPresenterView(presenter: presenter)
 	}
 }
 #endif
