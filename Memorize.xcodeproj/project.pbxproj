@@ -28,7 +28,7 @@
 		E411F64222F35F0600E7EF93 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64122F35F0600E7EF93 /* DeckDetailView.swift */; };
 		E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64322F35F1700E7EF93 /* CardPresenterView.swift */; };
 		E42CADE422F637C800D51C18 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42CADE322F637C800D51C18 /* CardView.swift */; };
-		E453B38D22F786C600F53EB6 /* CardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38C22F786C600F53EB6 /* CardPresenter.swift */; };
+		E453B38D22F786C600F53EB6 /* StudySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38C22F786C600F53EB6 /* StudySession.swift */; };
 		E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */; };
 		E453B39122F89AF400F53EB6 /* StudySessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B39022F89AF400F53EB6 /* StudySessionView.swift */; };
 /* End PBXBuildFile section */
@@ -79,7 +79,7 @@
 		E411F64122F35F0600E7EF93 /* DeckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
 		E411F64322F35F1700E7EF93 /* CardPresenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresenterView.swift; sourceTree = "<group>"; };
 		E42CADE322F637C800D51C18 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		E453B38C22F786C600F53EB6 /* CardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresenter.swift; sourceTree = "<group>"; };
+		E453B38C22F786C600F53EB6 /* StudySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySession.swift; sourceTree = "<group>"; };
 		E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionStatisticsView.swift; sourceTree = "<group>"; };
 		E453B39022F89AF400F53EB6 /* StudySessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,7 +195,7 @@
 		BFA8560F22E633000016EE62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E453B38C22F786C600F53EB6 /* CardPresenter.swift */,
+				E453B38C22F786C600F53EB6 /* StudySession.swift */,
 				BFA8560422E631450016EE62 /* User.swift */,
 				BFA855FE22E630BB0016EE62 /* Card.swift */,
 				BFA8560222E631330016EE62 /* CardStatistics.swift */,
@@ -366,7 +366,7 @@
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,
 				E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */,
 				E42CADE422F637C800D51C18 /* CardView.swift in Sources */,
-				E453B38D22F786C600F53EB6 /* CardPresenter.swift in Sources */,
+				E453B38D22F786C600F53EB6 /* StudySession.swift in Sources */,
 				E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  CardPresenter.swift
+//  CardSession.swift
 //  Memorize
 //
 //  Created by Riley Williams on 8/4/19.
@@ -9,13 +9,13 @@
 import SwiftUI
 import Combine
 
-class CardPresenter : ObservableObject {
+class StudySession : ObservableObject {
 	var cards:[Card]
 	private var completedCards:[Card] = []
 	var currentCard:Card { get { cards.count > 0 ? cards[0] : Card.blank } }
 	var areCardsRemaining:Bool { get { cards.count >= 1 } }
 	
-	let objectWillChange = PassthroughSubject<CardPresenter, Never>()
+	let objectWillChange = PassthroughSubject<StudySession, Never>()
 	
 	
 	init(_ cards:[Card]) {
@@ -36,12 +36,12 @@ class CardPresenter : ObservableObject {
 	
 	#if DEBUG
 	
-	static func testPresenter() -> CardPresenter {
+	static func testSession() -> StudySession {
 		let testUser = User.testUser(name: "Tester")
 		
-		let presenter = CardPresenter(testUser.decks[0].cardsDue)
+		let session = StudySession(testUser.decks[0].cardsDue)
 		
-		return presenter
+		return session
 	}
 	
 	#endif

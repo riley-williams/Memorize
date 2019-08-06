@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CardPresenterView: View {
-	@ObservedObject var presenter:CardPresenter
+	@ObservedObject var session:StudySession
 	@GestureState var dragInProgress:Bool = false
 	@State private var offset:CGSize = .zero
 	@State var showingAnswer:Bool = false
@@ -67,7 +67,7 @@ struct CardPresenterView: View {
 				}
 				
 				//current card
-				CardView(card:presenter.currentCard, showingAnswer: $showingAnswer)
+				CardView(card:session.currentCard, showingAnswer: $showingAnswer)
 					.offset(x:offset.width)
 					.gesture(drag)
 					.animation(
@@ -83,7 +83,7 @@ struct CardPresenterView: View {
 	}
 	
 	func updateCard(difficulty:CardStatistics.Difficulty) {
-		presenter.updateCurrentCard(difficulty)
+		session.updateCurrentCard(difficulty)
 		self.showingAnswer = false
 		self.dragSufficient = false
 	}
@@ -156,8 +156,8 @@ struct AnswerView: View {
 struct CardPresenterView_Previews: PreviewProvider {
 	static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
-		let presenter = CardPresenter(testUser.decks[0].cardsDue)
-		return CardPresenterView(presenter: presenter)
+		let session = StudySession(testUser.decks[0].cardsDue)
+		return CardPresenterView(session: session)
 	}
 }
 #endif

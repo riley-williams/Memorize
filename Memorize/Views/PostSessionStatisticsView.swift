@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PostSessionStatisticsView: View {
-	var presenter:CardPresenter
+	var session:StudySession
 	
     var body: some View {
         Text("Post Session Statistics View")
@@ -19,9 +19,9 @@ struct PostSessionStatisticsView: View {
 #if DEBUG
 struct PostSessionStatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-		let testPresenter = CardPresenter.testPresenter()
+		let testSession = StudySession.testSession()
         
-		return PostSessionStatisticsView(presenter: testPresenter)
+		return PostSessionStatisticsView(session: testSession)
     }
 }
 #endif

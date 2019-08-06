@@ -9,19 +9,19 @@
 import SwiftUI
 
 struct StudySessionView: View {
-	@ObservedObject var presenter:CardPresenter
+	@ObservedObject var session:StudySession
 	var body: some View {
 		ZStack {
-			if presenter.areCardsRemaining {
-				CardPresenterView(presenter: presenter)
+			if session.areCardsRemaining {
+				CardPresenterView(session: session)
 			} else {
-				PostSessionStatisticsView(presenter: presenter)
+				PostSessionStatisticsView(session: session)
 			}
 		}
 	}
 	
 	init(cards:[Card]) {
-		self.presenter = CardPresenter(cards)
+		self.session = StudySession(cards)
 	}
 }
 
