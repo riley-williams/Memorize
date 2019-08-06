@@ -9,21 +9,35 @@
 import SwiftUI
 
 struct DeckDetailView: View {
-	var deck:Deck
+	@ObservedObject var deck:Deck
+	@State var isEditing:Bool = false
 	
 	var body: some View {
 		VStack() {
 			
 			HStack(alignment:.top) {
+				ZStack(alignment: .bottomTrailing) {
 				DeckIcon(deck: deck, showsDue: false, width: 120)
 					.padding([.leading, .trailing])
-				
+					if isEditing {
+						Image(systemName: "camera.on.rectangle")
+							.font(Font.system(size: 22, weight: .bold))
+							.foregroundColor(.blue)
+							.padding(.trailing)
+					}
+				}
 				VStack(alignment: .leading, spacing: 10) {
-					Text(deck.name)
-						.font(.headline)
-						.bold()
-                        .lineLimit(2)
-                    
+					if isEditing {
+						TextField("Deck name", text: $deck.name)
+							.lineLimit(2)
+							.border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+							.padding(.trailing)
+					} else {
+						Text(deck.name)
+							.font(.headline)
+							.bold()
+							.lineLimit(2)
+					}
 					HStack {
 						ProgressBarView(size: .regular, progress: deck.mastery)
 							.frame(width:100)
@@ -33,15 +47,37 @@ struct DeckDetailView: View {
 					}
 				}
 				
+			}.padding(.bottom)
+			
+			
+			if isEditing {
+				
+					TextField("Description of \(deck.name)", text: $deck.description)
+					.lineLimit(10)
+				.layoutPriority(1)
+					.border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+					.padding()
+			} else {
+				Text(deck.description)
+				.lineLimit(10)
+					.padding()
 			}
+			
 			
 			Spacer()
 			
 			NavigationLink(destination: StudySessionView(cards: deck.cardsDue)) {
 				Text("Study")
 				.font(.headline)
+				.padding()
 			}
 		}
+		.navigationBarTitle(Text(""), displayMode: .large)
+		.navigationBarItems(trailing: Button(action: {
+			withAnimation { self.isEditing.toggle() }
+		}, label: {
+			Text(isEditing ? "Done" : "Edit")
+		}))
 	}
 }
 

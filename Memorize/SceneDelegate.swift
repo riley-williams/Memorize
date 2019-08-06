@@ -23,8 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		if let windowScene = scene as? UIWindowScene {
 			let window = UIWindow(windowScene: windowScene)
 			
-			let testUser = User(name: "Riley")
-			let view = DeckView().environmentObject(testUser)
+			let user = User.testUser(name: "Riley")
+			let view = DeckView().environmentObject(user)
 			
 			
 			

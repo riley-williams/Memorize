@@ -7,12 +7,15 @@
 //
 
 import SwiftUI
+import Combine
 
-class Deck : Identifiable {
-	var name:String
-	var description:String = ""
-	var icon:UIImage = #imageLiteral(resourceName: "Default")
+class Deck : Identifiable, ObservableObject {
+	var name:String { didSet { objectWillChange.send(self) } }
+	var description:String { didSet { objectWillChange.send(self) } }
+	var icon:UIImage { didSet { objectWillChange.send(self)	} }
 	var cards:[Card] = []
+	
+	let objectWillChange = PassthroughSubject<Deck, Never>()
 	
 	var mastery:Float {
 		get { cards.reduce(0) { $0 + $1.statistics.mastery } / Float(cards.count) }
@@ -26,6 +29,8 @@ class Deck : Identifiable {
 	
 	init(name:String) {
 		self.name = name
+		self.icon = #imageLiteral(resourceName: "Default")
+		self.description = ""
 	}
 	
 
@@ -34,7 +39,7 @@ class Deck : Identifiable {
 	
 	static func testDeck(name:String, percentMastery:Float, numCards:Int) -> Deck {
 		let deck:Deck = Deck(name: name)
-		deck.description = "This is a short description of what cards are in\(deck.name)."
+		deck.description = "This is a short test description of what cards are in \(deck.name)."
 		for i in 0..<numCards {
 			let c = Card.testCard(number: i)
 			c.statistics.interval = TimeInterval(percentMastery * Float(CardStatistics.masteryPeriod))

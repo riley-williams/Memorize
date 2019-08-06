@@ -55,11 +55,15 @@ struct AddDecksView: View {
 						}
 					}
 					
-					TextField("name", text: $newDeckTitle)
-						.padding([.horizontal, .vertical])
+					TextField("Name", text: $newDeckTitle) {
+						self.user.newDeck(name: self.newDeckTitle)
+						self.isShowingCreateDeck = false
+					}
+						
 					
 					Button(action: {
 						self.user.newDeck(name: self.newDeckTitle)
+						self.isShowingCreateDeck = false
 					}) {
 						Text("Create")
 							.foregroundColor(self.newDeckTitle.count == 0 ? .gray : .blue)
@@ -68,13 +72,9 @@ struct AddDecksView: View {
 					
 				}
 			}.padding()
-				.background(RoundedRectangle(cornerRadius: 10)
-					.foregroundColor(.white))
+				.background(Rectangle().foregroundColor(.white))
 				.clipShape(RoundedRectangle(cornerRadius: 10))
 				.shadow(radius: 15)
-			
-			
-			
 		}.padding()
 	}
 }
