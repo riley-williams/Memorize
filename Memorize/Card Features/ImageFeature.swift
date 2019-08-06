@@ -6,7 +6,7 @@
 //  Copyright © 2019 Riley Williams. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
 class ImageFeature: CardFeature {
 	var image:UIImage

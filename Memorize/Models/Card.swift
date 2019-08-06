@@ -8,7 +8,7 @@
 //	A card exists in a single deck
 //
 
-import UIKit
+import SwiftUI
 
 class Card {
 	var features:[TextFeature]

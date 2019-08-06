@@ -9,18 +9,34 @@
 import SwiftUI
 
 struct DeckView: View {
-	var user:User
+	@EnvironmentObject var user:User
+	@State var isShowingAddDecks:Bool = false
 	
 	var body: some View {
-		NavigationView {
-			List(user.decks) { deck in
-				NavigationLink(destination:DeckDetailView(deck: deck)) {
-					DeckRow(deck:deck)
+		ZStack {
+			NavigationView {
+				ScrollView {
+					ForEach(user.decks) { deck in
+						NavigationLink(destination:DeckDetailView(deck: deck)) {
+								DeckRow(deck:deck).padding(.horizontal)
+						}.buttonStyle(PlainButtonStyle())
+					}
+					
+				}.navigationBarTitle(Text("Decks"))
+					.navigationBarItems(trailing: Button(action: {
+						self.isShowingAddDecks.toggle()
+					}) {
+						Text("Add")
+					})
+			}
+			
+			if isShowingAddDecks {
+				VStack {
+					AddDecksView().offset(CGSize(width: 0, height: 50))
+					Spacer()
 				}
 			}
-			.navigationBarTitle(Text("Decks"))
 		}
-		
 	}
 }
 
@@ -30,31 +46,28 @@ struct DeckRow: View {
 	
 	var body: some View {
 		ZStack {
-			ZStack(alignment: .topLeading) {
-				GeometryReader { geometry in
-					RoundedRectangle(cornerRadius: 15)
-						.foregroundColor(.white)
-					Rectangle()
-						.frame(width:geometry.size.width*CGFloat(self.deck.mastery))
-						.foregroundColor(.blue)
-				}
-				
+			GeometryReader { geometry in
+				Rectangle()
+					.foregroundColor(.white)
+				Rectangle()
+					.frame(width:geometry.size.width*CGFloat(self.deck.mastery))
+					.foregroundColor(.blue)
 			}.cornerRadius(15)
-			.shadow(radius: 5)
-				.padding(.vertical, 5)
-			
+				.shadow(radius: 5)
 			
 			HStack(alignment: .center) {
 				DeckIcon(deck:deck, width: 70)
+					.foregroundColor(.black)
 					.padding()
 				VStack(alignment: .leading, spacing: 0) {
 					Text(deck.name)
 						.font(.headline)
 						.lineLimit(2)
+						.foregroundColor(.black)
 				}
 				Spacer()
 			}
-		}.frame(height: 70)
+		}
 	}
 }
 
@@ -65,7 +78,7 @@ struct DeckView_Previews: PreviewProvider {
 	static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
 		return Group {
-			DeckView(user:testUser)
+			DeckView().environmentObject(testUser)
 			
 			DeckRow(deck: testUser.decks[0])
 				.previewLayout(.fixed(width: 300, height: 70))

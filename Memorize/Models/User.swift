@@ -6,17 +6,25 @@
 //  Copyright © 2019 Riley Williams. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
+import Combine
 
-class User {
+class User : ObservableObject {
 	var Q:Float = 1 //User Q factor. Estimates ability to memorize
 	var name:String
 	var decks:[Deck] = []
+	
+	let objectWillChange = PassthroughSubject<User, Never>()
 	
 	init(name:String) {
 		self.name = name
 	}
 	
+	func newDeck(name _:String) {
+		let newDeck = Deck(name: name)
+		self.decks.append(newDeck)
+		self.objectWillChange.send(self)
+	}
 	
 	#if DEBUG
 	

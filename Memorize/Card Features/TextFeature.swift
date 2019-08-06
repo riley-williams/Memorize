@@ -6,7 +6,6 @@
 //  Copyright © 2019 Riley Williams. All rights reserved.
 //
 
-import UIKit
 import SwiftUI
 
 class TextFeature: CardFeature, Identifiable {

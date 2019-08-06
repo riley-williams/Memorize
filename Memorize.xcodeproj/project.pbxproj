@@ -31,6 +31,7 @@
 		E453B38D22F786C600F53EB6 /* StudySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38C22F786C600F53EB6 /* StudySession.swift */; };
 		E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */; };
 		E453B39122F89AF400F53EB6 /* StudySessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B39022F89AF400F53EB6 /* StudySessionView.swift */; };
+		E4E6528E22F9AEB900867DAA /* AddDecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6528D22F9AEB900867DAA /* AddDecksView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E453B38C22F786C600F53EB6 /* StudySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySession.swift; sourceTree = "<group>"; };
 		E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionStatisticsView.swift; sourceTree = "<group>"; };
 		E453B39022F89AF400F53EB6 /* StudySessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionView.swift; sourceTree = "<group>"; };
+		E4E6528D22F9AEB900867DAA /* AddDecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDecksView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				E411F63F22F35EF200E7EF93 /* DeckView.swift */,
+				E4E6528D22F9AEB900867DAA /* AddDecksView.swift */,
 				E411F64122F35F0600E7EF93 /* DeckDetailView.swift */,
 				E453B39022F89AF400F53EB6 /* StudySessionView.swift */,
 				E411F64322F35F1700E7EF93 /* CardPresenterView.swift */,
@@ -356,6 +359,7 @@
 				BFA855D022E62B2B0016EE62 /* Memorize.xcdatamodeld in Sources */,
 				BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */,
 				BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */,
+				E4E6528E22F9AEB900867DAA /* AddDecksView.swift in Sources */,
 				BFA855FF22E630BB0016EE62 /* Card.swift in Sources */,
 				BFA8560722E631590016EE62 /* CardFeature.swift in Sources */,
 				BFA8560522E631450016EE62 /* User.swift in Sources */,

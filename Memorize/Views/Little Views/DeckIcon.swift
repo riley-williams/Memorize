@@ -17,32 +17,32 @@ struct DeckIcon: View {
     private var offset:CGFloat { get { 3 + width/70 } }
     private var height:CGFloat { get { width*5.0/7.0 } }
     
-    var body: some View {
-        ZStack {
-            Image(uiImage:deck.icon)
-                .resizable()
-                .scaledToFill()
-                .frame(width: width, height: height)
-                .drawingGroup(opaque: true) //fill background of transparent images
-                .clipShape(RoundedRectangle(cornerRadius: radius - separation))
-                
-            //.overlay(RoundedRectangle(cornerRadius: radius - separation).stroke(Color.white, lineWidth: 2.0))
-            
-            if deck.numCardsDue > 0 && showsDue {
-                Text("\(deck.numCardsDue)")
-                    .foregroundColor(.white)
-                    .padding(.vertical, 0)
-                    .padding(.horizontal, 5)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20.0)
-                            .foregroundColor(.red)
-                            .frame(minWidth:22))
-                    .opacity(0.90)
-                    .shadow(radius: 4)
-                    .offset(x: width/2.0, y: -height/2.0)
-            }
-        }.frame(width: width, height: height)
-    }
+	var body: some View {
+		ZStack {
+			Image(uiImage:deck.icon)
+				.resizable()
+				.scaledToFill()
+				.background(Rectangle().foregroundColor(.white))
+				.frame(width: width, height: height)
+				.clipShape(RoundedRectangle(cornerRadius: radius - separation))
+			
+			//.overlay(RoundedRectangle(cornerRadius: radius - separation).stroke(Color.white, lineWidth: 2.0))
+			
+			if deck.numCardsDue > 0 && showsDue {
+				Text("\(deck.numCardsDue)")
+					.foregroundColor(.white)
+					.padding(.vertical, 0)
+					.padding(.horizontal, 5)
+					.background(
+						RoundedRectangle(cornerRadius: 20.0)
+							.foregroundColor(.red)
+							.frame(minWidth:22))
+					.opacity(0.90)
+					.shadow(radius: 4)
+					.offset(x: width/2.0, y: -height/2.0)
+			}
+		}.frame(width: width, height: height)
+	}
 }
 
 #if DEBUG
