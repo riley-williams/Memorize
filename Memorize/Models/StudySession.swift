@@ -13,7 +13,7 @@ class StudySession : ObservableObject {
 	var cards:[Card]
 	var completedCards:[Card] = []
 	var currentCard:Card { get { cards.count > 0 ? cards[0] : Card.blank } }
-	var areCardsRemaining:Bool { get { cards.count >= 1 } }
+	var areCardsRemaining:Bool { get { endTime != nil ? false : cards.count >= 1 } }
 	
 	private var startTime:Date?
 	private var endTime:Date?
