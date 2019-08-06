@@ -11,9 +11,26 @@ import Combine
 
 class StudySession : ObservableObject {
 	var cards:[Card]
-	private var completedCards:[Card] = []
+	var completedCards:[Card] = []
 	var currentCard:Card { get { cards.count > 0 ? cards[0] : Card.blank } }
 	var areCardsRemaining:Bool { get { cards.count >= 1 } }
+	
+	private var startTime:Date?
+	private var endTime:Date?
+	
+	var time:TimeInterval {
+		get {
+			if startTime != nil {
+				if endTime != nil {
+					return endTime!.timeIntervalSince(startTime!)
+				} else {
+					return startTime!.timeIntervalSinceNow
+				}
+			} else {
+				return 0
+			}
+		}
+	}
 	
 	let objectWillChange = PassthroughSubject<StudySession, Never>()
 	
@@ -27,10 +44,25 @@ class StudySession : ObservableObject {
 			currentCard.statistics.updateStats(difficulty)
 			if difficulty != .wrong {
 				completedCards.append(cards.removeFirst())
+				if !areCardsRemaining {
+					finish()
+				}
 			} else {
 				cards.append(cards.removeFirst())
 			}
 			objectWillChange.send(self)
+		}
+	}
+	
+	func start() {
+		if startTime == nil {
+			startTime = Date()
+		}
+	}
+	
+	func finish() {
+		if endTime == nil {
+			endTime = Date()
 		}
 	}
 	

@@ -12,7 +12,11 @@ struct PostSessionStatisticsView: View {
 	var session:StudySession
 	
     var body: some View {
-        Text("Post Session Statistics View")
+		VStack {
+			Text("Time: \(session.time)")
+			Text("Cards: \(session.completedCards.count)")
+		}
+		
     }
 }
 
@@ -20,7 +24,6 @@ struct PostSessionStatisticsView: View {
 struct PostSessionStatisticsView_Previews: PreviewProvider {
     static var previews: some View {
 		let testSession = StudySession.testSession()
-        
 		return PostSessionStatisticsView(session: testSession)
     }
 }

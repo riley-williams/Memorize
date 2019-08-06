@@ -22,6 +22,7 @@ struct StudySessionView: View {
 	
 	init(cards:[Card]) {
 		self.session = StudySession(cards)
+		session.start()
 	}
 }
 
