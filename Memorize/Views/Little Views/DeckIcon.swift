@@ -31,10 +31,9 @@ struct DeckIcon: View {
 			if deck.numCardsDue > 0 && showsDue {
 				Text("\(deck.numCardsDue)")
 					.foregroundColor(.white)
-					.padding(.vertical, 0)
 					.padding(.horizontal, 5)
 					.background(
-						RoundedRectangle(cornerRadius: 20.0)
+						Capsule()
 							.foregroundColor(.red)
 							.frame(minWidth:22))
 					.opacity(0.90)
