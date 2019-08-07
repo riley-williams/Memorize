@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddDecksView: View {
 	@EnvironmentObject var user:User
-	@State var isShowingCreateDeck:Bool = true
+	@State var isShowingCreateDeck:Bool = false
 	@State var newDeckTitle:String = ""
 	
 	var body: some View {
@@ -30,7 +30,7 @@ struct AddDecksView: View {
 							}
 						}
 						Divider()
-						Button(action: {}) {
+						NavigationLink(destination: ImportAnkiView()) {
 							HStack {
 								Image(systemName: "folder.badge.plus")
 								Text("Add from files")

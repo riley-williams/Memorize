@@ -11,8 +11,8 @@ import Combine
 
 class Deck : Identifiable, ObservableObject {
 	var name:String { didSet { objectWillChange.send(self) } }
-	var description:String { didSet { objectWillChange.send(self) } }
-	var icon:UIImage { didSet { objectWillChange.send(self)	} }
+	var description:String = "" { didSet { objectWillChange.send(self) } }
+	var icon:UIImage = #imageLiteral(resourceName: "Default") { didSet { objectWillChange.send(self)	} }
 	var cards:[Card] = []
 	
 	let objectWillChange = PassthroughSubject<Deck, Never>()
@@ -29,8 +29,6 @@ class Deck : Identifiable, ObservableObject {
 	
 	init(name:String) {
 		self.name = name
-		self.icon = #imageLiteral(resourceName: "Default")
-		self.description = ""
 	}
 	
 
