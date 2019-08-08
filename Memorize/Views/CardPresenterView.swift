@@ -15,9 +15,12 @@ struct CardPresenterView: View {
 	@State var showingAnswer:Bool = false
 	@State var dragSufficient:Bool = false
 	
-	let dismissOffset:CGFloat = 125 //distance from center to swipe answer
-	let motionReduction:CGFloat = 0.7 //% reduction in motion after drag completion
-	let unansweredReduction:CGFloat = 0.9 //% reduction in motion before answer is shown
+	
+	let dismissOffset:CGFloat = 115			//distance from center to swipe answer
+	let motionReduction:CGFloat = 0.7		//% reduction in motion after drag completion
+	let unansweredReduction:CGFloat = 0.9	//% reduction in motion before answer is shown
+	let finalMarkOpacity:Double = 0.9		//maximum X and check mark opacity
+	
 	
 	var body: some View {
 		let drag = DragGesture(minimumDistance:0)
@@ -54,20 +57,27 @@ struct CardPresenterView: View {
 		
 		return VStack {
 			ZStack {
-				HStack {
-					Image(systemName: (dragSufficient ? "checkmark.circle.fill" : "checkmark.circle"))
-						.font(.system(size: 100, weight: .bold))
-						.foregroundColor(showingAnswer ? (dragSufficient ? .green : .black) : .gray)
-						.padding()
-					Spacer()
-					Image(systemName: (dragSufficient ? "x.circle.fill" : "x.circle"))
-						.font(.system(size: 100, weight: .bold))
-						.foregroundColor(showingAnswer ? (dragSufficient ? .red : .black) : .gray)
-						.padding()
-				}
+				
 				
 				//current card
 				CardView(card:session.currentCard, showingAnswer: $showingAnswer)
+				.overlay(
+					VStack {
+						HStack{
+							Image(systemName: (dragSufficient ? "checkmark.circle.fill" : "checkmark.circle"))
+								.font(.system(size: 100, weight: .bold))
+								.foregroundColor(.green)
+								.opacity(mapClamp(Double(self.offset.width), a1: 0, a2: Double(dismissOffset), b1: 0, b2: finalMarkOpacity))
+								.padding()
+							Spacer()
+							Image(systemName: (dragSufficient ? "x.circle.fill" : "x.circle"))
+								.font(.system(size: 100, weight: .bold))
+								.foregroundColor(.red)
+								.opacity(mapClamp(Double(-self.offset.width), a1: 0, a2: Double(dismissOffset), b1: 0, b2: finalMarkOpacity))
+								.padding()
+						}.padding()
+						Spacer()
+					}).padding()
 					.offset(x:offset.width)
 					.gesture(drag)
 					.animation(
@@ -80,6 +90,16 @@ struct CardPresenterView: View {
 			
 			AnswerView(responder: updateCard(difficulty:), showingAnswer: $showingAnswer)
 		}
+	}
+	
+	func mapClamp(_ x:Double, a1:Double, a2:Double, b1:Double, b2:Double) -> Double {
+		if x < a1 {
+			return b1
+		}
+		if x > a2 {
+			return b2
+		}
+		return b1 + (x-a1)/(a2-a1)*(b2-b1)
 	}
 	
 	func updateCard(difficulty:CardStatistics.Difficulty) {
