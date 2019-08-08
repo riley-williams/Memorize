@@ -34,6 +34,10 @@
 		E4A9208C22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip in Resources */ = {isa = PBXBuildFile; fileRef = E4A9208B22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip */; };
 		E4B0CFB922FB6F1F00223E08 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFB822FB6F1F00223E08 /* SQLite */; };
 		E4B0CFBC22FB6F5B00223E08 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFBB22FB6F5B00223E08 /* ZIPFoundation */; };
+		E4B0CFBE22FC720E00223E08 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFBD22FC720E00223E08 /* SQLite */; };
+		E4B0CFC022FC721300223E08 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFBF22FC721300223E08 /* SQLite */; };
+		E4B0CFC222FC721700223E08 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFC122FC721700223E08 /* ZIPFoundation */; };
+		E4B0CFC422FC721C00223E08 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFC322FC721C00223E08 /* ZIPFoundation */; };
 		E4DAA5D022FB4402000660F2 /* ImportAnkiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAA5CF22FB4402000660F2 /* ImportAnkiView.swift */; };
 		E4DAA5D222FB442E000660F2 /* AnkiDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAA5D122FB442E000660F2 /* AnkiDeck.swift */; };
 		E4E6528E22F9AEB900867DAA /* AddDecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6528D22F9AEB900867DAA /* AddDecksView.swift */; };
@@ -121,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B0CFC022FC721300223E08 /* SQLite in Frameworks */,
+				E4B0CFC222FC721700223E08 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +134,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B0CFBE22FC720E00223E08 /* SQLite in Frameworks */,
+				E4B0CFC422FC721C00223E08 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +302,10 @@
 				BFA855E222E62B360016EE62 /* PBXTargetDependency */,
 			);
 			name = MemorizeTests;
+			packageProductDependencies = (
+				E4B0CFBF22FC721300223E08 /* SQLite */,
+				E4B0CFC122FC721700223E08 /* ZIPFoundation */,
+			);
 			productName = MemorizeTests;
 			productReference = BFA855E022E62B360016EE62 /* MemorizeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -312,6 +324,10 @@
 				BFA855ED22E62B360016EE62 /* PBXTargetDependency */,
 			);
 			name = MemorizeUITests;
+			packageProductDependencies = (
+				E4B0CFBD22FC720E00223E08 /* SQLite */,
+				E4B0CFC322FC721C00223E08 /* ZIPFoundation */,
+			);
 			productName = MemorizeUITests;
 			productReference = BFA855EB22E62B360016EE62 /* MemorizeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -588,11 +604,7 @@
 				DEVELOPMENT_ASSET_PATHS = "Memorize/Preview\\ Content";
 				DEVELOPMENT_TEAM = BD5L3C9JKH;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Memorize/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -616,11 +628,7 @@
 				DEVELOPMENT_ASSET_PATHS = "Memorize/Preview\\ Content";
 				DEVELOPMENT_TEAM = BD5L3C9JKH;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Memorize/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -783,6 +791,26 @@
 			productName = SQLite;
 		};
 		E4B0CFBB22FB6F5B00223E08 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4B0CFBA22FB6F5B00223E08 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		E4B0CFBD22FC720E00223E08 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4B0CFB722FB6F1F00223E08 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+		E4B0CFBF22FC721300223E08 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4B0CFB722FB6F1F00223E08 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+		E4B0CFC122FC721700223E08 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4B0CFBA22FB6F5B00223E08 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		E4B0CFC322FC721C00223E08 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E4B0CFBA22FB6F5B00223E08 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
