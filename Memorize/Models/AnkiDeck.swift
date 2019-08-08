@@ -14,12 +14,15 @@ import SQLite
 class AnkiDeck: ObservableObject {
 	var unpackProgress:Float = 0 { didSet { objectWillChange.send(self) } }
 	var progressDescription:String = "" { didSet { objectWillChange.send(self) } }
-	let fileManager = FileManager()
 	
 	let objectWillChange = PassthroughSubject<AnkiDeck, Never>()
 	
 	init() {
-		progressDescription = "Copying to documents"
+
+	}
+	
+	func convert(_ complete:(Deck)->()) {
+		progressDescription = "Making a local copy"
 		let archiveURL = Bundle.main.url(forResource: "NATO_phonetic_alphabet", withExtension: "zip")!
 		guard let archive = Archive(url: archiveURL, accessMode: .read) else { return }
 		guard let entry = archive["collection.anki2"] else { return }
@@ -56,6 +59,16 @@ class AnkiDeck: ObservableObject {
 				print("\(allNotes.count) rows")
 				print("\(allNotes[0])")
 				print("id:\(allNotes[0][id]) flds:\(allNotes[0][flds])")
+				
+				
+				let deck = Deck(name: "Test")
+				for note in allNotes {
+					deck.cards.append(convertAnkiRowToCard(note))
+				}
+				
+				progressDescription = "\(deck.cards.count) cards imported!"
+				complete(deck)
+				
 			} catch {
 				print("Failed to open database file")
 			}
@@ -66,8 +79,17 @@ class AnkiDeck: ObservableObject {
 			print("extracting entry failed")
 		}
 		
+	}
+	
+	func convertAnkiRowToCard(_ row:Row) -> Card {
+		let flds = Expression<String>("flds")
+		let components = row[flds].split(separator: "\u{001F}")
 		
+		var features:[TextFeature] = []
+		features.append(TextFeature(text: String(components[0]), side: .front))
+		features.append(TextFeature(text: String(components[1]), side: .back))
 		
+		return Card(features: features)
 	}
 	
 }

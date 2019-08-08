@@ -10,16 +10,26 @@ import SwiftUI
 
 struct ImportAnkiView: View {
 	@ObservedObject var ankiDeck:AnkiDeck = AnkiDeck()
+	@EnvironmentObject var user:User
 	
-    var body: some View {
-		Text("\(ankiDeck.progressDescription)")
-    }
+	var body: some View {
+		VStack {
+			Text("\(ankiDeck.progressDescription)")
+			Button(action: {
+				self.ankiDeck.convert() { deck in
+					self.user.decks.append(deck)
+				}
+			}) {
+				Text("Start Import")
+			}
+		}
+	}
 }
 
 #if DEBUG
 struct ImportAnkiView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImportAnkiView()
-    }
+	static var previews: some View {
+		ImportAnkiView().environmentObject(User.testUser(name: "Tester"))
+	}
 }
 #endif

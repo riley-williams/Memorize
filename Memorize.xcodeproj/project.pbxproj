@@ -244,12 +244,12 @@
 			isa = PBXGroup;
 			children = (
 				E411F63F22F35EF200E7EF93 /* DeckView.swift */,
-				E4E6528D22F9AEB900867DAA /* AddDecksView.swift */,
 				E411F64122F35F0600E7EF93 /* DeckDetailView.swift */,
 				E453B39022F89AF400F53EB6 /* StudySessionView.swift */,
 				E411F64322F35F1700E7EF93 /* CardPresenterView.swift */,
 				E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */,
 				E42CADE322F637C800D51C18 /* CardView.swift */,
+				E4E6528D22F9AEB900867DAA /* AddDecksView.swift */,
 				E4DAA5CF22FB4402000660F2 /* ImportAnkiView.swift */,
 				BF5FF1B622F002A5006A7F5C /* Little Views */,
 			);

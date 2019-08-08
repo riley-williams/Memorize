@@ -33,6 +33,7 @@ struct DeckView: View {
 			if isShowingAddDecks {
 				VStack {
 					AddDecksView().offset(CGSize(width: 0, height: 50))
+					ImportAnkiView()
 					Spacer()
 				}
 			}
