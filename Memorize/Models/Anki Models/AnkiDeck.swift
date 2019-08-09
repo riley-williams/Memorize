@@ -111,7 +111,7 @@ class AnkiDeck: ObservableObject {
 			
 			let deck = Deck(name: "Test")
 			for note in allNotes {
-				deck.cards.append(convertAnkiRowToCard(note))
+				deck.cards += AnkiNote(note, models: deckModels).cards
 			}
 			
 			progressDescription = "\(deck.cards.count) cards imported!"
@@ -120,7 +120,6 @@ class AnkiDeck: ObservableObject {
 		} catch {
 			print("Failed to open database file")
 		}
-		
 		
 	}
 	
@@ -138,38 +137,23 @@ class AnkiDeck: ObservableObject {
 }
 
 
-
-struct AnkiDeckModel : Codable {
-	var css:String
-	var deckID:Int
-	var modelID:String
-	var fields:[AnkiField]
-	var templates:[AnkiTemplate]
-	
-	enum CodingKeys: String, CodingKey {
-		case css = "css"
-		case deckID = "did"
-		case fields = "flds"
-		case modelID = "id"
-		case templates = "tmpls"
-	}
-	
-	var description:String {
-		var dsc = "DeckModel ID \(deckID):"
-		for field in fields {
-			dsc.append(" \(field.description)")
-		}
-		return dsc
-	}
-}
-
 struct AnkiTemplate : Codable {
-	var afmt:String
+	var answerFormat:String
 	var bafmt:String
 	var bqfmt:String
 	var name:String
 	var ord:Int
-	var qfmt:String
+	var questionFormat:String
+	
+	enum CodingKeys: String, CodingKey {
+		case answerFormat = "afmt"
+		case bafmt
+		case bqfmt
+		case name
+		case ord
+		case questionFormat = "qfmt"
+		
+	}
 }
 
 struct AnkiField : Codable {
