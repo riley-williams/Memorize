@@ -30,7 +30,7 @@ struct AddDecksView: View {
 							}
 						}
 						Divider()
-						NavigationLink(destination: ImportAnkiView()) {
+						NavigationLink(destination: ImportAnkiProgressView()) {
 							HStack {
 								Image(systemName: "folder.badge.plus")
 								Text("Add from files")
