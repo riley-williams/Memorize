@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct AnkiDeckModel : Codable {
+struct AnkiModel : Codable {
 	var css:String
 	var deckID:Int
 	var modelID:String

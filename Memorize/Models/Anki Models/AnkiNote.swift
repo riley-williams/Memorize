@@ -10,11 +10,11 @@ import UIKit
 import SQLite
 
 struct AnkiNote {
-	var model:AnkiDeckModel
+	var model:AnkiModel
 	var fields:[String] = []
 	var sfld:String
 	
-	init(_ row:Row, models:[String:AnkiDeckModel]) {
+	init(_ row:Row, models:[String:AnkiModel]) {
 		let flds = Expression<String>("flds")
 		
 		let components = row[flds].split(separator: "\u{001F}")

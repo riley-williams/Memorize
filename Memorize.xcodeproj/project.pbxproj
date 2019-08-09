@@ -28,7 +28,7 @@
 		E411F64222F35F0600E7EF93 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64122F35F0600E7EF93 /* DeckDetailView.swift */; };
 		E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64322F35F1700E7EF93 /* CardPresenterView.swift */; };
 		E42A8CFB22FDF93700F3178E /* AnkiNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8CFA22FDF93700F3178E /* AnkiNote.swift */; };
-		E42A8CFD22FDF96500F3178E /* AnkiDeckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8CFC22FDF96500F3178E /* AnkiDeckModel.swift */; };
+		E42A8CFD22FDF96500F3178E /* AnkiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A8CFC22FDF96500F3178E /* AnkiModel.swift */; };
 		E42CADE422F637C800D51C18 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42CADE322F637C800D51C18 /* CardView.swift */; };
 		E453B38D22F786C600F53EB6 /* StudySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38C22F786C600F53EB6 /* StudySession.swift */; };
 		E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */; };
@@ -41,7 +41,7 @@
 		E4B0CFC222FC721700223E08 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFC122FC721700223E08 /* ZIPFoundation */; };
 		E4B0CFC422FC721C00223E08 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFC322FC721C00223E08 /* ZIPFoundation */; };
 		E4DAA5D022FB4402000660F2 /* ImportAnkiProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAA5CF22FB4402000660F2 /* ImportAnkiProgressView.swift */; };
-		E4DAA5D222FB442E000660F2 /* AnkiDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAA5D122FB442E000660F2 /* AnkiDeck.swift */; };
+		E4DAA5D222FB442E000660F2 /* AnkiImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAA5D122FB442E000660F2 /* AnkiImporter.swift */; };
 		E4E6528E22F9AEB900867DAA /* AddDecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6528D22F9AEB900867DAA /* AddDecksView.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,14 +104,14 @@
 		E411F64122F35F0600E7EF93 /* DeckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
 		E411F64322F35F1700E7EF93 /* CardPresenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresenterView.swift; sourceTree = "<group>"; };
 		E42A8CFA22FDF93700F3178E /* AnkiNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiNote.swift; sourceTree = "<group>"; };
-		E42A8CFC22FDF96500F3178E /* AnkiDeckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiDeckModel.swift; sourceTree = "<group>"; };
+		E42A8CFC22FDF96500F3178E /* AnkiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiModel.swift; sourceTree = "<group>"; };
 		E42CADE322F637C800D51C18 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E453B38C22F786C600F53EB6 /* StudySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySession.swift; sourceTree = "<group>"; };
 		E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionStatisticsView.swift; sourceTree = "<group>"; };
 		E453B39022F89AF400F53EB6 /* StudySessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionView.swift; sourceTree = "<group>"; };
 		E4A9208B22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = NATO_phonetic_alphabet.zip; sourceTree = "<group>"; };
 		E4DAA5CF22FB4402000660F2 /* ImportAnkiProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAnkiProgressView.swift; sourceTree = "<group>"; };
-		E4DAA5D122FB442E000660F2 /* AnkiDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiDeck.swift; sourceTree = "<group>"; };
+		E4DAA5D122FB442E000660F2 /* AnkiImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiImporter.swift; sourceTree = "<group>"; };
 		E4E6528D22F9AEB900867DAA /* AddDecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDecksView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,8 +263,8 @@
 		E42A8CF922FDF91C00F3178E /* Anki Models */ = {
 			isa = PBXGroup;
 			children = (
-				E4DAA5D122FB442E000660F2 /* AnkiDeck.swift */,
-				E42A8CFC22FDF96500F3178E /* AnkiDeckModel.swift */,
+				E4DAA5D122FB442E000660F2 /* AnkiImporter.swift */,
+				E42A8CFC22FDF96500F3178E /* AnkiModel.swift */,
 				E42A8CFA22FDF93700F3178E /* AnkiNote.swift */,
 			);
 			path = "Anki Models";
@@ -427,7 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF5FF1B922F00316006A7F5C /* DeckIcon.swift in Sources */,
-				E42A8CFD22FDF96500F3178E /* AnkiDeckModel.swift in Sources */,
+				E42A8CFD22FDF96500F3178E /* AnkiModel.swift in Sources */,
 				BF5FF1BA22F00316006A7F5C /* ProgressBarView.swift in Sources */,
 				E411F64222F35F0600E7EF93 /* DeckDetailView.swift in Sources */,
 				BFA8560122E630CA0016EE62 /* Deck.swift in Sources */,
@@ -447,7 +447,7 @@
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,
 				E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */,
 				E42CADE422F637C800D51C18 /* CardView.swift in Sources */,
-				E4DAA5D222FB442E000660F2 /* AnkiDeck.swift in Sources */,
+				E4DAA5D222FB442E000660F2 /* AnkiImporter.swift in Sources */,
 				E453B38D22F786C600F53EB6 /* StudySession.swift in Sources */,
 				E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */,
 			);

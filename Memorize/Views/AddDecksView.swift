@@ -30,7 +30,12 @@ struct AddDecksView: View {
 							}
 						}
 						Divider()
-						NavigationLink(destination: ImportAnkiProgressView()) {
+						Button(action: {
+							//This is just here as a way to test import/conversion
+								AnkiImporter().convert() { deck in
+									self.user.decks.append(deck)
+								}
+						}) {
 							HStack {
 								Image(systemName: "folder.badge.plus")
 								Text("Add from files")

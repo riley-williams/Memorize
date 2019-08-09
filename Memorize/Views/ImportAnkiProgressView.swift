@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ImportAnkiProgressView: View {
-	@ObservedObject var ankiDeck:AnkiDeck = AnkiDeck()
+	@ObservedObject var ankiDeck:AnkiImporter = AnkiImporter()
 	@EnvironmentObject var user:User
 	
 	

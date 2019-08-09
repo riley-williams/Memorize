@@ -11,11 +11,11 @@ import Combine
 import ZIPFoundation
 import SQLite
 
-class AnkiDeck: ObservableObject {
+class AnkiImporter: ObservableObject {
 	var unpackProgress:Float = 0 { didSet { objectWillChange.send(self) } }
 	var progressDescription:String = "" { didSet { objectWillChange.send(self) } }
 	
-	let objectWillChange = PassthroughSubject<AnkiDeck, Never>()
+	let objectWillChange = PassthroughSubject<AnkiImporter, Never>()
 	
 	let unzipPercent = 0.3 //Progress after unzipping
 	
@@ -92,7 +92,7 @@ class AnkiDeck: ObservableObject {
 			let models = Expression<String>("models")
 			
 			let decoder = JSONDecoder()
-			let deckModels = try! decoder.decode([String:AnkiDeckModel].self, from: configRow[models].data(using: .ascii)!)
+			let deckModels = try! decoder.decode([String:AnkiModel].self, from: configRow[models].data(using: .ascii)!)
 			
 			for (id, model) in deckModels {
 				print("\(id):\n\(model.description)")

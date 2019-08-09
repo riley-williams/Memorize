@@ -18,7 +18,7 @@ struct DeckView: View {
 				ScrollView {
 					ForEach(user.decks) { deck in
 						NavigationLink(destination:DeckDetailView(deck: deck)) {
-								DeckRow(deck:deck).padding(.horizontal)
+							DeckRow(deck:deck).padding(.horizontal)
 						}.buttonStyle(PlainButtonStyle())
 					}
 					
@@ -33,7 +33,6 @@ struct DeckView: View {
 			if isShowingAddDecks {
 				VStack {
 					AddDecksView().offset(CGSize(width: 0, height: 50))
-					ImportAnkiProgressView()
 					Spacer()
 				}
 			}
