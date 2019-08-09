@@ -22,11 +22,12 @@ class AnkiDeck: ObservableObject {
 	
 	func createOrOverwriteArchiveDirectory() -> URL {
 		let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
-		let unarchiveDirectory = documentsDirectory!.appendingPathComponent("Import4")
+		let unarchiveDirectory = documentsDirectory!.appendingPathComponent("Import")
 		//remove if it exists
-		if FileManager.default.fileExists(atPath: unarchiveDirectory.absoluteString) {
+		if FileManager.default.fileExists(atPath: unarchiveDirectory.relativePath) {
 			do {
-				try FileManager.default.removeItem(atPath: unarchiveDirectory.absoluteString)
+				print("removing existing import directory")
+				try FileManager.default.removeItem(atPath: unarchiveDirectory.relativePath)
 			} catch {
 				assertionFailure("Unable to remove existing directory")
 			}
@@ -40,8 +41,9 @@ class AnkiDeck: ObservableObject {
 		guard let entry = archive[file] else { return }
 		
 		//remove database file if one already exists. This should never fail unless a previous step fails
-		if FileManager.default.fileExists(atPath: destination.absoluteString) {
+		if FileManager.default.fileExists(atPath: destination.relativePath) {
 			do {
+				print("removing existing file: \(destination.relativePath)")
 				try FileManager.default.removeItem(at: destination)
 			} catch {
 				assertionFailure("Failed to remove existing collection file")
@@ -88,15 +90,9 @@ class AnkiDeck: ObservableObject {
 			let colTable = Table("col")
 			let configRow = try db.pluck(colTable)!
 			let models = Expression<String>("models")
-			let json = try? JSONSerialization.jsonObject(with: configRow[models].data(using: .ascii)!, options: [])
 			
-			var deckModels:[String: AnkiDeckModel] = Dictionary()
-			
-			if let jsonModels = json as? [String : Any] {
-				for (id, jsonModel) in jsonModels {
-					deckModels[id] = AnkiDeckModel(json: jsonModel as! [String : Any])
-				}
-			}
+			let decoder = JSONDecoder()
+			let deckModels = try! decoder.decode([String:AnkiDeckModel].self, from: configRow[models].data(using: .ascii)!)
 			
 			for (id, model) in deckModels {
 				print("\(id):\n\(model.description)")
@@ -143,24 +139,23 @@ class AnkiDeck: ObservableObject {
 
 
 
-class AnkiDeckModel {
+struct AnkiDeckModel : Codable {
 	var css:String
-	var did:Int
+	var deckID:Int
+	var modelID:String
 	var fields:[AnkiField]
+	var templates:[AnkiTemplate]
 	
-	init?(json: [String:Any]) {
-		css = json["css"] as? String ?? ""
-		did = json["did"] as? Int ?? 0
-		fields = []
-		for field in json["flds"] as! [[String:Any]] {
-			if let f = AnkiField(json: field) {
-				fields.append(f)
-			}
-		}
+	enum CodingKeys: String, CodingKey {
+		case css = "css"
+		case deckID = "did"
+		case fields = "flds"
+		case modelID = "id"
+		case templates = "tmpls"
 	}
 	
 	var description:String {
-		var dsc = "DeckModel ID \(did):"
+		var dsc = "DeckModel ID \(deckID):"
 		for field in fields {
 			dsc.append(" \(field.description)")
 		}
@@ -168,15 +163,36 @@ class AnkiDeckModel {
 	}
 }
 
-class AnkiField {
+struct AnkiTemplate : Codable {
+	var afmt:String
+	var bafmt:String
+	var bqfmt:String
+	var name:String
+	var ord:Int
+	var qfmt:String
+}
+
+struct AnkiField : Codable {
 	var name:String
 	var ordinal:Int
+	var media:[String]
+	var font:String
+	var rtl:Bool
+	var size:Double
+	var sticky:Bool
 	
-	init?(json: [String:Any]) {
-		name = json["name"] as? String ?? ""
-		ordinal = json["ord"] as? Int ?? -1
+	
+	enum CodingKeys: String, CodingKey {
+		case name
+		case ordinal = "ord"
+		case media
+		case font
+		case rtl
+		case size
+		case sticky
+		
 	}
-	
+
 	var description:String {
 		return "Field(\(ordinal):\(name))"
 	}
