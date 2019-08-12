@@ -33,6 +33,11 @@
 		E453B38D22F786C600F53EB6 /* StudySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38C22F786C600F53EB6 /* StudySession.swift */; };
 		E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */; };
 		E453B39122F89AF400F53EB6 /* StudySessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B39022F89AF400F53EB6 /* StudySessionView.swift */; };
+		E480DC2722FE2E12004E9C57 /* Greek_23000_wtf.zip in Resources */ = {isa = PBXBuildFile; fileRef = E480DC2622FE2E12004E9C57 /* Greek_23000_wtf.zip */; };
+		E480DC2B22FE2E35004E9C57 /* GBSC_2015_Greek_Vocab__Grammar.zip in Resources */ = {isa = PBXBuildFile; fileRef = E480DC2822FE2E33004E9C57 /* GBSC_2015_Greek_Vocab__Grammar.zip */; };
+		E480DC2C22FE2E35004E9C57 /* Modern_Greek.zip in Resources */ = {isa = PBXBuildFile; fileRef = E480DC2922FE2E33004E9C57 /* Modern_Greek.zip */; };
+		E480DC2D22FE2E35004E9C57 /* 6000_Greek_sentences_sorted_by_difficulty_with_audio.zip in Resources */ = {isa = PBXBuildFile; fileRef = E480DC2A22FE2E35004E9C57 /* 6000_Greek_sentences_sorted_by_difficulty_with_audio.zip */; };
+		E4A057522302037C00391955 /* Ultimate_Geography.zip in Resources */ = {isa = PBXBuildFile; fileRef = E4A057512302037C00391955 /* Ultimate_Geography.zip */; };
 		E4A9208C22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip in Resources */ = {isa = PBXBuildFile; fileRef = E4A9208B22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip */; };
 		E4B0CFB922FB6F1F00223E08 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFB822FB6F1F00223E08 /* SQLite */; };
 		E4B0CFBC22FB6F5B00223E08 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4B0CFBB22FB6F5B00223E08 /* ZIPFoundation */; };
@@ -109,6 +114,11 @@
 		E453B38C22F786C600F53EB6 /* StudySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySession.swift; sourceTree = "<group>"; };
 		E453B38E22F78B9D00F53EB6 /* PostSessionStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionStatisticsView.swift; sourceTree = "<group>"; };
 		E453B39022F89AF400F53EB6 /* StudySessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionView.swift; sourceTree = "<group>"; };
+		E480DC2622FE2E12004E9C57 /* Greek_23000_wtf.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Greek_23000_wtf.zip; sourceTree = "<group>"; };
+		E480DC2822FE2E33004E9C57 /* GBSC_2015_Greek_Vocab__Grammar.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = GBSC_2015_Greek_Vocab__Grammar.zip; sourceTree = "<group>"; };
+		E480DC2922FE2E33004E9C57 /* Modern_Greek.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Modern_Greek.zip; sourceTree = "<group>"; };
+		E480DC2A22FE2E35004E9C57 /* 6000_Greek_sentences_sorted_by_difficulty_with_audio.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 6000_Greek_sentences_sorted_by_difficulty_with_audio.zip; sourceTree = "<group>"; };
+		E4A057512302037C00391955 /* Ultimate_Geography.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Ultimate_Geography.zip; sourceTree = "<group>"; };
 		E4A9208B22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = NATO_phonetic_alphabet.zip; sourceTree = "<group>"; };
 		E4DAA5CF22FB4402000660F2 /* ImportAnkiProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAnkiProgressView.swift; sourceTree = "<group>"; };
 		E4DAA5D122FB442E000660F2 /* AnkiImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiImporter.swift; sourceTree = "<group>"; };
@@ -185,7 +195,7 @@
 				BFA8561022E6330C0016EE62 /* Views */,
 				BFA8560F22E633000016EE62 /* Models */,
 				BFA8560E22E632E30016EE62 /* Card Features */,
-				E4A9208B22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip */,
+				E4A057532302038500391955 /* Anki Decks */,
 				BFA855D322E62B360016EE62 /* Assets.xcassets */,
 				BFA855D822E62B360016EE62 /* LaunchScreen.storyboard */,
 				BFA855DB22E62B360016EE62 /* Info.plist */,
@@ -268,6 +278,19 @@
 				E42A8CFA22FDF93700F3178E /* AnkiNote.swift */,
 			);
 			path = "Anki Models";
+			sourceTree = "<group>";
+		};
+		E4A057532302038500391955 /* Anki Decks */ = {
+			isa = PBXGroup;
+			children = (
+				E4A9208B22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip */,
+				E480DC2622FE2E12004E9C57 /* Greek_23000_wtf.zip */,
+				E4A057512302037C00391955 /* Ultimate_Geography.zip */,
+				E480DC2A22FE2E35004E9C57 /* 6000_Greek_sentences_sorted_by_difficulty_with_audio.zip */,
+				E480DC2822FE2E33004E9C57 /* GBSC_2015_Greek_Vocab__Grammar.zip */,
+				E480DC2922FE2E33004E9C57 /* Modern_Greek.zip */,
+			);
+			path = "Anki Decks";
 			sourceTree = "<group>";
 		};
 		E4DAA5BE22FB3941000660F2 /* Frameworks */ = {
@@ -398,10 +421,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E480DC2B22FE2E35004E9C57 /* GBSC_2015_Greek_Vocab__Grammar.zip in Resources */,
 				BFA855DA22E62B360016EE62 /* LaunchScreen.storyboard in Resources */,
 				BFA855D722E62B360016EE62 /* Preview Assets.xcassets in Resources */,
+				E480DC2722FE2E12004E9C57 /* Greek_23000_wtf.zip in Resources */,
+				E480DC2D22FE2E35004E9C57 /* 6000_Greek_sentences_sorted_by_difficulty_with_audio.zip in Resources */,
 				BFA855D422E62B360016EE62 /* Assets.xcassets in Resources */,
+				E480DC2C22FE2E35004E9C57 /* Modern_Greek.zip in Resources */,
 				E4A9208C22FB5AD800F6BC37 /* NATO_phonetic_alphabet.zip in Resources */,
+				E4A057522302037C00391955 /* Ultimate_Geography.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

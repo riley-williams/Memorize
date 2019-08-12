@@ -13,7 +13,7 @@ import SQLite
 
 class AnkiImporter: ObservableObject {
 	var unpackProgress:Float = 0 { didSet { objectWillChange.send(self) } }
-	var progressDescription:String = "" { didSet { objectWillChange.send(self) } }
+	var progressDescription:String = "" { didSet { objectWillChange.send(self); print(self.progressDescription) } }
 	
 	let objectWillChange = PassthroughSubject<AnkiImporter, Never>()
 	
@@ -67,7 +67,7 @@ class AnkiImporter: ObservableObject {
 		progressDescription = "Making a local copy"
 		//do that here
 		//Cheat below for faster testing
-		let archiveURL = Bundle.main.url(forResource: "NATO_phonetic_alphabet", withExtension: "zip")!
+		let archiveURL = Bundle.main.url(forResource: "Modern_Greek", withExtension: "zip")!
 		
 		
 		//Unzip just the notes database
@@ -92,7 +92,7 @@ class AnkiImporter: ObservableObject {
 			let models = Expression<String>("models")
 			
 			let decoder = JSONDecoder()
-			let deckModels = try! decoder.decode([String:AnkiModel].self, from: configRow[models].data(using: .ascii)!)
+			let deckModels = try! decoder.decode([String:AnkiModel].self, from: configRow[models].data(using: .utf8)!)
 			
 			for (id, model) in deckModels {
 				print("\(id):\n\(model.description)")
@@ -100,13 +100,6 @@ class AnkiImporter: ObservableObject {
 			
 			let notesTable = Table("notes")
 			let allNotes = Array(try db.prepare(notesTable))
-			let id = Expression<Int64>("id")
-			let flds = Expression<String>("flds")
-			
-			
-			print("\(allNotes.count) rows")
-			print("\(allNotes[0])")
-			print("id:\(allNotes[0][id]) flds:\(allNotes[0][flds])")
 			
 			
 			let deck = Deck(name: "Test")
@@ -176,8 +169,39 @@ struct AnkiField : Codable {
 		case sticky
 		
 	}
-
+	
 	var description:String {
 		return "Field(\(ordinal):\(name))"
 	}
 }
+
+/*
+//Used for decoding integer values that may sometimes appear as an int or a string
+//converts ints to strings and always encodes to a string regardless of original type
+struct SometimesString {
+	var value:String
+}
+
+extension SometimesString : Codable {
+	init(from decoder: Decoder) throws {
+		let container = try decoder.singleValueContainer()
+		do {
+			//try to decode as an integer
+			self = try .init(value: "\(container.decode(Int64.self))")
+		} catch DecodingError.typeMismatch {
+			//if that fails, try to decode as a string
+			do {
+				self = try .init(value: container.decode(String.self))
+			} catch DecodingError.typeMismatch {
+				//It's neither. uh oh.
+				throw DecodingError.typeMismatch(SometimesString.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Content was neither decodable as a String nor an Int"))
+			}
+		}
+	}
+	
+	func encode(to encoder: Encoder) throws {
+		var container = encoder.singleValueContainer()
+		try container.encode(self)
+	}
+}
+*/
