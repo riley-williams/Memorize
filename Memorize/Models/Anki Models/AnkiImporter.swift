@@ -11,6 +11,7 @@ import Combine
 import ZIPFoundation
 import SQLite
 
+/// Import Anki decks
 class AnkiImporter: ObservableObject {
 	@Published var unpackProgress:Float = 0
 	@Published var progressDescription:String = "" // { didSet { print(self.progressDescription) } }
@@ -18,6 +19,8 @@ class AnkiImporter: ObservableObject {
 	let unzipPercent = 0.3 //Progress after unzipping
 	
 	
+	/// Attempts to create a new folder for importing Anki decks.
+	/// Removes the existing folder.
 	func createOrOverwriteArchiveDirectory() -> URL {
 		let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
 		let unarchiveDirectory = documentsDirectory!.appendingPathComponent("Import")
