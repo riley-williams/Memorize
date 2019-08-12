@@ -42,7 +42,7 @@ struct DeckView: View {
 
 
 struct DeckRow: View {
-	var deck: Deck
+	@ObservedObject var deck: Deck
 	
 	var body: some View {
 		ZStack {

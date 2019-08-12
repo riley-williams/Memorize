@@ -30,7 +30,7 @@ struct DeckDetailView: View {
 					if isEditing {
 						TextField("Deck name", text: $deck.name)
 							.lineLimit(2)
-							.border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+							.border(Color.gray, width: 1)
 							.padding(.trailing)
 					} else {
 						Text(deck.name)

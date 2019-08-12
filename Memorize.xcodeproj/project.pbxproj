@@ -246,9 +246,9 @@
 			children = (
 				E453B38C22F786C600F53EB6 /* StudySession.swift */,
 				BFA8560422E631450016EE62 /* User.swift */,
+				BFA8560022E630CA0016EE62 /* Deck.swift */,
 				BFA855FE22E630BB0016EE62 /* Card.swift */,
 				BFA8560222E631330016EE62 /* CardStatistics.swift */,
-				BFA8560022E630CA0016EE62 /* Deck.swift */,
 				E42A8CF922FDF91C00F3178E /* Anki Models */,
 			);
 			path = Models;

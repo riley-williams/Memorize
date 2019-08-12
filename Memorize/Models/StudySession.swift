@@ -10,8 +10,8 @@ import SwiftUI
 import Combine
 
 class StudySession : ObservableObject {
-	var cards:[Card]
-	var completedCards:[Card] = []
+	@Published var cards:[Card]
+	@Published var completedCards:[Card] = []
 	var currentCard:Card { get { cards.count > 0 ? cards[0] : Card.blank } }
 	var areCardsRemaining:Bool { get { endTime != nil ? false : cards.count >= 1 } }
 	
@@ -32,9 +32,6 @@ class StudySession : ObservableObject {
 		}
 	}
 	
-	let objectWillChange = PassthroughSubject<StudySession, Never>()
-	
-	
 	init(_ cards:[Card]) {
 		self.cards = cards
 	}
@@ -50,7 +47,6 @@ class StudySession : ObservableObject {
 			} else {
 				cards.append(cards.removeFirst())
 			}
-			objectWillChange.send(self)
 		}
 	}
 	

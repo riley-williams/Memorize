@@ -12,10 +12,8 @@ import ZIPFoundation
 import SQLite
 
 class AnkiImporter: ObservableObject {
-	var unpackProgress:Float = 0 { didSet { objectWillChange.send(self) } }
-	var progressDescription:String = "" { didSet { objectWillChange.send(self); print(self.progressDescription) } }
-	
-	let objectWillChange = PassthroughSubject<AnkiImporter, Never>()
+	@Published var unpackProgress:Float = 0
+	@Published var progressDescription:String = "" // { didSet { print(self.progressDescription) } }
 	
 	let unzipPercent = 0.3 //Progress after unzipping
 	

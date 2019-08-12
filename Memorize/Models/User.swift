@@ -11,11 +11,10 @@ import Combine
 
 class User : ObservableObject {
 	var Q:Float = 1 //User Q factor. Estimates ability to memorize
-	var name:String { didSet { objectWillChange.send(self) } }
-	var decks:[Deck] { didSet { objectWillChange.send(self)	} }
+	@Published var name:String
+	@Published var decks:[Deck] { didSet { print("decks changed") } }
 	
-	let objectWillChange = PassthroughSubject<User, Never>()
-	
+
 	init(name:String) {
 		self.name = name
 		self.decks = []
@@ -24,7 +23,6 @@ class User : ObservableObject {
 	func newDeck(name _:String) {
 		let newDeck = Deck(name: name)
 		self.decks.append(newDeck)
-		self.objectWillChange.send(self)
 	}
 	
 	#if DEBUG

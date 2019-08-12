@@ -10,12 +10,10 @@ import SwiftUI
 import Combine
 
 class Deck : Identifiable, ObservableObject {
-	var name:String { didSet { objectWillChange.send(self) } }
-	var description:String = "" { didSet { objectWillChange.send(self) } }
-	var icon:UIImage = #imageLiteral(resourceName: "Default") { didSet { objectWillChange.send(self)	} }
+	@Published var name:String
+	@Published var description:String = ""
+	@Published var icon:UIImage = #imageLiteral(resourceName: "Default")
 	var cards:[Card] = []
-	
-	let objectWillChange = PassthroughSubject<Deck, Never>()
 	
 	var mastery:Float {
 		get { cards.reduce(0) { $0 + $1.statistics.mastery } / Float(cards.count) }
