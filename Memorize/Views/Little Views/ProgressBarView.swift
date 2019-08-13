@@ -16,7 +16,7 @@ enum ProgressBarViewSize {
 struct ProgressBarView: View {
     var size:ProgressBarViewSize = .regular
     @State var progress:Float = 0.0
-    @State var barColor:Color = .yellow
+    @State var color:Color = .yellow
     @State var isRounded:Bool = true
     
     private var height:CGFloat {
@@ -44,7 +44,7 @@ struct ProgressBarView: View {
 
                     Rectangle()
                     .frame(width: self.interpolate(self.progress, a:self.height, b:geometry.size.width), height: self.height)
-                    .foregroundColor(self.barColor)
+                    .foregroundColor(self.color)
                 
             }
             .frame(height:self.height)

@@ -14,9 +14,15 @@ import SQLite
 /// Import Anki decks
 class AnkiImporter: ObservableObject {
 	@Published var unpackProgress:Float = 0
-	@Published var progressDescription:String = "" // { didSet { print(self.progressDescription) } }
+	@Published var progressDescription:String = "Waiting to start import"
+	@Published var cardsImported:Int = 0
+	@Published var cardsSkipped:Int = 0
+	private var archiveURL:URL
+	private var didUnzip:Bool = false
 	
-	let unzipPercent = 0.3 //Progress after unzipping
+	init(_ deckURL:URL) {
+		archiveURL = deckURL
+	}
 	
 	
 	/// Attempts to create a new folder for importing Anki decks.
@@ -40,7 +46,6 @@ class AnkiImporter: ObservableObject {
 	
 	func extractFromArchive(_ archive:Archive, fileNamed file:String, to destination:URL) {
 		guard let entry = archive[file] else { return }
-		
 		//remove database file if one already exists. This should never fail unless a previous step fails
 		if FileManager.default.fileExists(atPath: destination.relativePath) {
 			do {
@@ -67,8 +72,7 @@ class AnkiImporter: ObservableObject {
 		//get a URL to the deck to import
 		progressDescription = "Making a local copy"
 		//do that here
-		//Cheat below for faster testing
-		let archiveURL = Bundle.main.url(forResource: "Modern_Greek", withExtension: "zip")!
+		//TODO: make a local copy?
 		
 		
 		//Unzip just the notes database
@@ -117,64 +121,8 @@ class AnkiImporter: ObservableObject {
 		
 	}
 	
-	func convertAnkiRowToCard(_ row:Row) -> Card {
-		let flds = Expression<String>("flds")
-		let components = row[flds].split(separator: "\u{001F}")
-		
-		var features:[TextFeature] = []
-		features.append(TextFeature(text: String(components[0]), side: .front))
-		features.append(TextFeature(text: String(components[1]), side: .back))
-		
-		return Card(features: features)
-	}
-	
 }
 
-
-struct AnkiTemplate : Codable {
-	var answerFormat:String
-	var bafmt:String
-	var bqfmt:String
-	var name:String
-	var ord:Int
-	var questionFormat:String
-	
-	enum CodingKeys: String, CodingKey {
-		case answerFormat = "afmt"
-		case bafmt
-		case bqfmt
-		case name
-		case ord
-		case questionFormat = "qfmt"
-		
-	}
-}
-
-struct AnkiField : Codable {
-	var name:String
-	var ordinal:Int
-	var media:[String]
-	var font:String
-	var rtl:Bool
-	var size:Double
-	var sticky:Bool
-	
-	
-	enum CodingKeys: String, CodingKey {
-		case name
-		case ordinal = "ord"
-		case media
-		case font
-		case rtl
-		case size
-		case sticky
-		
-	}
-	
-	var description:String {
-		return "Field(\(ordinal):\(name))"
-	}
-}
 
 /*
 //Used for decoding integer values that may sometimes appear as an int or a string

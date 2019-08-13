@@ -1,5 +1,5 @@
 //
-//  AnkiDeckModel.swift
+//  AnkiDeckModels.swift
 //  Memorize
 //
 //  Created by Riley Williams on 8/9/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct AnkiModel : Codable {
+struct AnkiModel : Codable, CustomStringConvertible {
 //	var crowdAnkiUUID:String
 	var css:String
 	var deckID:Int
@@ -47,5 +47,50 @@ struct AnkiModel : Codable {
 			dsc.append(" \(field.description)")
 		}
 		return dsc
+	}
+}
+
+struct AnkiTemplate : Codable {
+	var answerFormat:String
+	var bafmt:String
+	var bqfmt:String
+	var name:String
+	var ord:Int
+	var questionFormat:String
+	
+	enum CodingKeys: String, CodingKey {
+		case answerFormat = "afmt"
+		case bafmt
+		case bqfmt
+		case name
+		case ord
+		case questionFormat = "qfmt"
+		
+	}
+}
+
+struct AnkiField : Codable, CustomStringConvertible {
+	var name:String
+	var ordinal:Int
+	var media:[String]
+	var font:String
+	var rtl:Bool
+	var size:Double
+	var sticky:Bool
+	
+	
+	enum CodingKeys: String, CodingKey {
+		case name
+		case ordinal = "ord"
+		case media
+		case font
+		case rtl
+		case size
+		case sticky
+		
+	}
+	
+	var description:String {
+		return "Field(\(ordinal):\(name))"
 	}
 }

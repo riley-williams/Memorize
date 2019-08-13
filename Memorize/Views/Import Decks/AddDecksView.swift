@@ -32,9 +32,7 @@ struct AddDecksView: View {
 						Divider()
 						Button(action: {
 							//This is just here as a way to test import/conversion
-								AnkiImporter().convert() { deck in
-									self.user.decks.append(deck)
-								}
+							#warning("come back to this")
 						}) {
 							HStack {
 								Image(systemName: "folder.badge.plus")

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ImportAnkiProgressView: View {
-	@ObservedObject var ankiDeck:AnkiImporter = AnkiImporter()
+	@ObservedObject var ankiDeck:AnkiImporter
 	@EnvironmentObject var user:User
 	
 	
@@ -31,7 +31,8 @@ struct ImportAnkiProgressView: View {
 #if DEBUG
 struct ImportAnkiProgressView_Previews: PreviewProvider {
 	static var previews: some View {
-		ImportAnkiProgressView().environmentObject(User.testUser(name: "Tester"))
+		let importer = AnkiImporter(Bundle.main.url(forResource: "Modern_Greek", withExtension: "zip")!)
+		return ImportAnkiProgressView(ankiDeck: importer).environmentObject(User.testUser(name: "Tester"))
 	}
 }
 #endif
