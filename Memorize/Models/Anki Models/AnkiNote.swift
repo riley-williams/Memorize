@@ -14,7 +14,10 @@ struct AnkiNote {
 	var fields:[String] = []
 	var sfld:String
 	
-	init(_ row:Row, models:[String:AnkiModel]) {
+	/// Initializes a note. Note initialization will return nil if the model it requires is not provided
+	/// - Parameter row: The database row for the note
+	/// - Parameter models: Models available for displaying/converting note
+	init?(_ row:Row, models:[String:AnkiModel]) {
 		let flds = Expression<String>("flds")
 		
 		let components = row[flds].split(separator: "\u{001F}")
@@ -27,7 +30,11 @@ struct AnkiNote {
 		
 		let mid = Expression<Int>("mid")
 		let modelID = "\(row[mid])"
-		self.model = models[modelID]!
+		if let model = models[modelID] {
+			self.model = model
+		} else {
+			return nil
+		}
 	}
 	
 	var cards:[Card] {

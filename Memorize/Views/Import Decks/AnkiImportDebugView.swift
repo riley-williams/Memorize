@@ -17,7 +17,7 @@ struct AnkiImportDebugView: View {
     var body: some View {
 		NavigationView {
 			List(decks) { d in
-				NavigationLink(destination: SelectAnkiTemplatesView(deckFile: Bundle.main.url(forResource: d.file, withExtension: "")!)) {
+				NavigationLink(destination: SelectAnkiModelsView(deckFile: Bundle.main.url(forResource: d.file, withExtension: "")!)) {
 					Text(d.name)
 				}
 			}.navigationBarTitle("Test Decks")

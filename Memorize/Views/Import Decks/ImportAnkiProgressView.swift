@@ -18,7 +18,7 @@ struct ImportAnkiProgressView: View {
 			Text("\(ankiDeck.progressDescription)")
 			
 			Button(action: {
-				self.ankiDeck.convert() { deck in
+				self.ankiDeck.convertNoOptions() { deck in
 					self.user.decks.append(deck)
 				}
 			}) {

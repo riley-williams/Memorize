@@ -50,6 +50,7 @@
 		E4E6528E22F9AEB900867DAA /* AddDecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6528D22F9AEB900867DAA /* AddDecksView.swift */; };
 		E4F2F61D230333D0005BA61F /* SelectAnkiTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2F61C230333D0005BA61F /* SelectAnkiTemplatesView.swift */; };
 		E4F2F61F23033437005BA61F /* AnkiImportDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2F61E23033437005BA61F /* AnkiImportDebugView.swift */; };
+		E4F2F62123046969005BA61F /* SelectAnkiModelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2F62023046969005BA61F /* SelectAnkiModelsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		E4E6528D22F9AEB900867DAA /* AddDecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDecksView.swift; sourceTree = "<group>"; };
 		E4F2F61C230333D0005BA61F /* SelectAnkiTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnkiTemplatesView.swift; sourceTree = "<group>"; };
 		E4F2F61E23033437005BA61F /* AnkiImportDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiImportDebugView.swift; sourceTree = "<group>"; };
+		E4F2F62023046969005BA61F /* SelectAnkiModelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnkiModelsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,8 +310,9 @@
 			children = (
 				E4E6528D22F9AEB900867DAA /* AddDecksView.swift */,
 				E4DAA5CF22FB4402000660F2 /* ImportAnkiProgressView.swift */,
-				E4F2F61C230333D0005BA61F /* SelectAnkiTemplatesView.swift */,
 				E4F2F61E23033437005BA61F /* AnkiImportDebugView.swift */,
+				E4F2F62023046969005BA61F /* SelectAnkiModelsView.swift */,
+				E4F2F61C230333D0005BA61F /* SelectAnkiTemplatesView.swift */,
 			);
 			path = "Import Decks";
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				E42A8CFB22FDF93700F3178E /* AnkiNote.swift in Sources */,
 				BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */,
 				BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */,
+				E4F2F62123046969005BA61F /* SelectAnkiModelsView.swift in Sources */,
 				E4E6528E22F9AEB900867DAA /* AddDecksView.swift in Sources */,
 				BFA855FF22E630BB0016EE62 /* Card.swift in Sources */,
 				BFA8560722E631590016EE62 /* CardFeature.swift in Sources */,
