@@ -10,8 +10,9 @@ import SwiftUI
 
 struct AddDecksView: View {
 	@EnvironmentObject var user:User
-	@State var isShowingCreateDeck:Bool = false
+	@State var isShowingCreateDeck = false
 	@State var newDeckTitle:String = ""
+	@State var isShowingModalPopover = false
 	
 	var body: some View {
 		HStack(alignment:.top) {
@@ -30,10 +31,7 @@ struct AddDecksView: View {
 							}
 						}
 						Divider()
-						Button(action: {
-							//This is just here as a way to test import/conversion
-							#warning("come back to this")
-						}) {
+						NavigationLink(destination:AnkiImportDebugView()) {
 							HStack {
 								Image(systemName: "folder.badge.plus")
 								Text("Add from files")
@@ -59,13 +57,13 @@ struct AddDecksView: View {
 					}
 					
 					TextField("Name", text: $newDeckTitle) {
-						self.user.newDeck(name: self.newDeckTitle)
+						_ = self.user.newDeck(name: self.newDeckTitle)
 						self.isShowingCreateDeck = false
 					}
 						
 					
 					Button(action: {
-						self.user.newDeck(name: self.newDeckTitle)
+						_ = self.user.newDeck(name: self.newDeckTitle)
 						self.isShowingCreateDeck = false
 					}) {
 						Text("Create")

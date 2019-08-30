@@ -29,10 +29,10 @@ class Deck : Identifiable, ObservableObject {
 		self.name = name
 	}
 	
+}
 
-	
-	#if DEBUG
-	
+#if DEBUG
+extension Deck {
 	static func testDeck(name:String, percentMastery:Float, numCards:Int) -> Deck {
 		let deck:Deck = Deck(name: name)
 		deck.description = "This is a short test description of what cards are in \(deck.name)."
@@ -43,6 +43,5 @@ class Deck : Identifiable, ObservableObject {
 		}
 		return deck
 	}
-	
-	#endif
 }
+#endif

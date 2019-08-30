@@ -11,6 +11,7 @@ import SwiftUI
 struct DeckIcon: View {
     var deck:Deck
     @State var showsDue:Bool = true
+	@Binding var showsEditing:Bool
     var width:CGFloat = 70
     private var radius:CGFloat { get { 10.0*(width/70.0) } }
     private var separation:CGFloat { get { 2.0*(width/70.0) } }
@@ -44,18 +45,20 @@ struct DeckIcon: View {
 	}
 }
 
+
 #if DEBUG
 struct DeckIcon_Previews: PreviewProvider {
     static var previews: some View {
         let user = User.testUser(name: "Riley")
         return Group {
-            DeckIcon(deck:user.decks[0], showsDue: false)
+			
+			DeckIcon(deck:user.decks[0], showsDue: false, showsEditing: .constant(true))
                 .previewLayout(.fixed(width: 200, height: 200))
-            DeckIcon(deck:user.decks[4], width: 70)
+			DeckIcon(deck:user.decks[4], showsEditing: .constant(false), width: CGFloat(70))
                 .previewLayout(.fixed(width: 100, height: 100))
-            DeckIcon(deck:user.decks[1], showsDue: false, width: 119)
+			DeckIcon(deck:user.decks[1], showsDue: false, showsEditing: .constant(false), width: CGFloat(119))
                 .previewLayout(.fixed(width: 200, height: 150))
-            DeckIcon(deck:user.decks[3], width: 119)
+			DeckIcon(deck:user.decks[3], showsEditing: .constant(true), width: 119)
                 .previewLayout(.fixed(width: 200, height: 150))
         }
     }

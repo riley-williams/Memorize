@@ -10,11 +10,14 @@ import SwiftUI
 
 struct DeckView: View {
 	@EnvironmentObject var user:User
-	@State var isShowingAddDecks:Bool = false
+	@State var isShowingAddDecksMini:Bool = false
+	@State var isShowingAddFromFiles:Bool = false
+	@State var isShowingCreateNewDeck:Bool = false
 	
 	var body: some View {
-		ZStack {
-			NavigationView {
+		
+		NavigationView {
+			ZStack {
 				ScrollView {
 					ForEach(user.decks) { deck in
 						NavigationLink(destination:DeckDetailView(deck: deck)) {
@@ -24,18 +27,25 @@ struct DeckView: View {
 					
 				}.navigationBarTitle(Text("Decks"))
 					.navigationBarItems(trailing: Button(action: {
-						self.isShowingAddDecks.toggle()
+						self.isShowingAddDecksMini.toggle()
+						
 					}) {
 						Text("Add")
 					})
 			}
-			
-			if isShowingAddDecks {
-				VStack {
-					AddDecksView().offset(CGSize(width: 0, height: 50))
-					Spacer()
-				}
-			}
+		}
+		.popover(isPresented: $isShowingAddFromFiles) {
+			AnkiImportDebugView().environmentObject(self.user)
+		}
+		.sheet(isPresented: $isShowingCreateNewDeck) {
+			CreateNewDeckView(isPresented: self.$isShowingCreateNewDeck).environmentObject(self.user)
+		}
+		.actionSheet(isPresented: $isShowingAddDecksMini) {
+			ActionSheet(title: Text("New deck"), message: nil, buttons:
+				[.default(Text("Create"), action: { self.isShowingCreateNewDeck = true }),
+				 .default(Text("Add from files"), action: { self.isShowingAddFromFiles = true }),
+				 .cancel()]
+			)
 		}
 	}
 }
@@ -56,7 +66,7 @@ struct DeckRow: View {
 				.shadow(radius: 5)
 			
 			HStack(alignment: .center) {
-				DeckIcon(deck:deck, width: 70)
+				DeckIcon(deck:deck, showsEditing: .constant(false), width: 70)
 					.foregroundColor(.black)
 					.padding()
 				VStack(alignment: .leading, spacing: 0) {
@@ -76,11 +86,11 @@ struct DeckRow: View {
 struct DeckView_Previews: PreviewProvider {
 	
 	static var previews: some View {
-		let testUser = User.testUser(name: "Riley")
+		let user = User.testUser(name: "Riley")
 		return Group {
-			DeckView().environmentObject(testUser)
+			DeckView().environmentObject(user)
 			
-			DeckRow(deck: testUser.decks[0])
+			DeckRow(deck: user.decks[0])
 				.previewLayout(.fixed(width: 300, height: 70))
 			
 		}

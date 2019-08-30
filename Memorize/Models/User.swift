@@ -12,7 +12,7 @@ import Combine
 class User : ObservableObject {
 	var Q:Float = 1 //User Q factor. Estimates ability to memorize
 	@Published var name:String
-	@Published var decks:[Deck] { didSet { print("decks changed") } }
+	@Published var decks:[Deck]
 	
 
 	init(name:String) {
@@ -20,13 +20,30 @@ class User : ObservableObject {
 		self.decks = []
 	}
 	
-	func newDeck(name _:String) {
+	/// Convenience for `.append(Deck(name:))`
+	/// - Parameter name: _Required._ Name of the new deck
+	func newDeck(name _:String) -> Deck {
 		let newDeck = Deck(name: name)
 		self.decks.append(newDeck)
+		return newDeck
 	}
 	
-	#if DEBUG
+	/// Convenience for `.append(Deck(name:))`
+	/// - Parameter name: _Required._ Name of the new deck
+	/// - Parameter description: _Required._ Name of the new deck
+	func newDeck(_ name:String, description:String) -> Deck {
+		let newDeck = Deck(name: name)
+		newDeck.description = description
+		self.decks.append(newDeck)
+		return newDeck
+	}
 	
+}
+
+
+#if DEBUG
+
+extension User {
 	static func testUser(name:String) -> User {
 		let user = User(name:name)
 		
@@ -52,6 +69,7 @@ class User : ObservableObject {
 		
 		return user
 	}
-	
-	#endif
 }
+
+#endif
+

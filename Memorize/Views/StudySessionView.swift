@@ -20,9 +20,14 @@ struct StudySessionView: View {
 		}
 	}
 	
+	func onAppear() -> some View
+	{
+		session.start()
+		return self
+	}
+	
 	init(cards:[Card]) {
 		self.session = StudySession(cards)
-		session.start()
 	}
 }
 

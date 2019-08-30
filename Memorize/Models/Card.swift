@@ -27,13 +27,14 @@ class Card {
 	
 	static var blank:Card { get { return Card(features: []) } }
 	
-	
-	
-	#if DEBUG
+}
+
+#if DEBUG
+extension Card {
 	static func testCard(number:Int) -> Card {
 		let front = TextFeature(text: "Test card \(number) front", side: .front)
 		let back = TextFeature(text: "Test card \(number) answer", side: .back)
 		return Card(features: [front, back])
 	}
-	#endif
 }
+#endif

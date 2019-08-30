@@ -11,7 +11,7 @@ import SwiftUI
 struct SelectAnkiModelsView: View {
 	@ObservedObject var importer:AnkiImporter
 	var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        Text("Models")
     }
 	
 	init(deckFile:URL) {

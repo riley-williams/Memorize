@@ -72,8 +72,11 @@ class StudySession : ObservableObject {
 		}
 	}
 	
-	#if DEBUG
-	
+}
+
+
+#if DEBUG
+extension StudySession {
 	static func testSession() -> StudySession {
 		let testUser = User.testUser(name: "Tester")
 		
@@ -81,6 +84,5 @@ class StudySession : ObservableObject {
 		
 		return session
 	}
-	
-	#endif
 }
+#endif

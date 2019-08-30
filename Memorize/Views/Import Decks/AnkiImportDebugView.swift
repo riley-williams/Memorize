@@ -15,13 +15,13 @@ struct AnkiImportDebugView: View {
 	
 	
     var body: some View {
-		NavigationView {
+		
 			List(decks) { d in
 				NavigationLink(destination: SelectAnkiModelsView(deckFile: Bundle.main.url(forResource: d.file, withExtension: "")!)) {
 					Text(d.name)
 				}
 			}.navigationBarTitle("Test Decks")
-		}
+		
     }
 	
 	
@@ -45,7 +45,7 @@ struct AnkiImportDebugView: View {
 struct AnkiImportDebugView_Previews: PreviewProvider {
     static var previews: some View {
 		let user = User.testUser(name: "Tester")
-		return AnkiImportDebugView().environmentObject(user)
+		return NavigationView { AnkiImportDebugView().environmentObject(user) }
     }
 }
 #endif
