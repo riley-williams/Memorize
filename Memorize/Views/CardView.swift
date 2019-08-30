@@ -20,10 +20,8 @@ struct CardView: View {
 		ZStack {
 			RoundedRectangle(cornerRadius: 20)
 				.fill(Color.white)
-				.padding()
 			RoundedRectangle(cornerRadius: 20)
 				.stroke(Color.gray, lineWidth: 3)
-				.padding()
 			
 			VStack {
 				ForEach(visibleFeatures) {
@@ -47,8 +45,8 @@ struct CardView_Previews: PreviewProvider {
     static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
 		return Group {
-			CardView(card:testUser.decks[0].cards[0], showingAnswer: .constant(false))
-			CardView(card:testUser.decks[0].cards[0], showingAnswer: .constant(true))
+			CardView(card:testUser.decks[0].cards[0], showingAnswer: .constant(false)).padding()
+			CardView(card:testUser.decks[0].cards[0], showingAnswer: .constant(true)).padding()
 				.environment(\.colorScheme, .dark)
 		}
     }
