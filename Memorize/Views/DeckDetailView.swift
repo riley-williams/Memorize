@@ -20,7 +20,6 @@ struct DeckDetailView: View {
 					.padding([.leading, .trailing])
 				
 				VStack(alignment: .leading, spacing: 10) {
-					
 					if isEditing {
 						TextField("Deck name", text: $deck.name)
 							.lineLimit(2)
@@ -33,8 +32,7 @@ struct DeckDetailView: View {
 							.lineLimit(2)
 					}
 					HStack {
-						ProgressBarView(size: .regular, progress: deck.mastery)
-							.frame(width:100)
+						ProgressBarView(size: .regular, progress: deck.mastery, color: .blue, isRounded: true)
 						Text("\(Int(deck.mastery * 100))%")
 							.font(.headline)
 						Spacer()
@@ -62,7 +60,8 @@ struct DeckDetailView: View {
 			NavigationLink(destination: StudySessionView(cards: deck.cardsDue)) {
 				Text("Study")
 					.font(.headline)
-			}.padding()
+				.padding()
+			}
 		}
 		.navigationBarTitle(Text(""), displayMode: .large)
 		.navigationBarItems(trailing:
