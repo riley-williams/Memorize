@@ -19,14 +19,14 @@ struct CardView: View {
 		
 		ZStack {
 			RoundedRectangle(cornerRadius: 20)
-				.fill(Color.white)
+				.fill(Color(UIColor.secondarySystemBackground))
 			RoundedRectangle(cornerRadius: 20)
-				.stroke(Color.gray, lineWidth: 3)
+				.stroke(Color(UIColor.systemFill), lineWidth: 3)
 			
 			VStack {
 				ForEach(visibleFeatures) {
 					Text($0.text).padding(.all)
-						.foregroundColor(.black)
+						.foregroundColor(.init(UIColor.label))
 					.layoutPriority(2)
 				}
 			}
@@ -48,7 +48,7 @@ struct CardView_Previews: PreviewProvider {
 			CardView(card:testUser.decks[0].cards[0], showingAnswer: .constant(false)).padding()
 			CardView(card:testUser.decks[0].cards[0], showingAnswer: .constant(true)).padding()
 				.environment(\.colorScheme, .dark)
-		}
+		}.background(Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all))
     }
 }
 #endif

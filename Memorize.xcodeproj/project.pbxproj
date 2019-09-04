@@ -49,6 +49,7 @@
 		E4DAA5D022FB4402000660F2 /* ImportAnkiProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAA5CF22FB4402000660F2 /* ImportAnkiProgressView.swift */; };
 		E4DAA5D222FB442E000660F2 /* AnkiImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAA5D122FB442E000660F2 /* AnkiImporter.swift */; };
 		E4E6528E22F9AEB900867DAA /* AddDecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6528D22F9AEB900867DAA /* AddDecksView.swift */; };
+		E4F24207231E0619006FBF90 /* DeckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F24206231E0619006FBF90 /* DeckRow.swift */; };
 		E4F2F61D230333D0005BA61F /* SelectAnkiTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2F61C230333D0005BA61F /* SelectAnkiTemplatesView.swift */; };
 		E4F2F61F23033437005BA61F /* AnkiImportDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2F61E23033437005BA61F /* AnkiImportDebugView.swift */; };
 		E4F2F62123046969005BA61F /* SelectAnkiModelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2F62023046969005BA61F /* SelectAnkiModelsView.swift */; };
@@ -129,6 +130,7 @@
 		E4DAA5CF22FB4402000660F2 /* ImportAnkiProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAnkiProgressView.swift; sourceTree = "<group>"; };
 		E4DAA5D122FB442E000660F2 /* AnkiImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiImporter.swift; sourceTree = "<group>"; };
 		E4E6528D22F9AEB900867DAA /* AddDecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDecksView.swift; sourceTree = "<group>"; };
+		E4F24206231E0619006FBF90 /* DeckRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRow.swift; sourceTree = "<group>"; };
 		E4F2F61C230333D0005BA61F /* SelectAnkiTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnkiTemplatesView.swift; sourceTree = "<group>"; };
 		E4F2F61E23033437005BA61F /* AnkiImportDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiImportDebugView.swift; sourceTree = "<group>"; };
 		E4F2F62023046969005BA61F /* SelectAnkiModelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnkiModelsView.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				E411F63F22F35EF200E7EF93 /* DeckView.swift */,
+				E4F24206231E0619006FBF90 /* DeckRow.swift */,
 				E4F2F6232308CEE4005BA61F /* TestUIView.swift */,
 				E411F64122F35F0600E7EF93 /* DeckDetailView.swift */,
 				E4216294231754DA001FAF45 /* CreateNewDeckView.swift */,
@@ -500,6 +503,7 @@
 				BFA8560922E6316A0016EE62 /* ImageFeature.swift in Sources */,
 				E453B38F22F78B9D00F53EB6 /* PostSessionStatisticsView.swift in Sources */,
 				BFA8560322E631330016EE62 /* CardStatistics.swift in Sources */,
+				E4F24207231E0619006FBF90 /* DeckRow.swift in Sources */,
 				E4F2F61F23033437005BA61F /* AnkiImportDebugView.swift in Sources */,
 				E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */,
 				E42CADE422F637C800D51C18 /* CardView.swift in Sources */,

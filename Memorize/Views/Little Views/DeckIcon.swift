@@ -23,7 +23,7 @@ struct DeckIcon: View {
 			Image(uiImage:deck.icon)
 				.resizable()
 				.scaledToFill()
-				.background(Rectangle().foregroundColor(.white))
+				.background(Rectangle().foregroundColor(.init(UIColor.secondarySystemFill)))
 				.frame(width: width, height: height)
 				.clipShape(RoundedRectangle(cornerRadius: radius - separation))
 			
@@ -35,9 +35,9 @@ struct DeckIcon: View {
 					.padding(.horizontal, 5)
 					.background(
 						Capsule()
-							.foregroundColor(.red)
+							.foregroundColor(.init(UIColor.systemRed))
 							.frame(minWidth:22))
-					.opacity(0.90)
+					.opacity(0.95)
 					.shadow(radius: 4)
 					.offset(x: width/2.0, y: -height/2.0)
 			}
@@ -60,6 +60,7 @@ struct DeckIcon_Previews: PreviewProvider {
                 .previewLayout(.fixed(width: 200, height: 150))
 			DeckIcon(deck:user.decks[3], showsEditing: .constant(true), width: 119)
                 .previewLayout(.fixed(width: 200, height: 150))
+				.environment(\.colorScheme, .dark)
         }
     }
 }

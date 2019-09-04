@@ -38,7 +38,7 @@ struct ProgressBarView: View {
                 //under
                 RoundedRectangle(cornerRadius:(self.isRounded ? self.height/2 : 0))
                     .frame(width: geometry.size.width, height: self.height)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.init(UIColor.secondarySystemFill))
                 
                 //over
 
@@ -91,13 +91,15 @@ struct ProgressBarView_Previews: PreviewProvider {
                 ProgressBarView(size:.regular, isRounded: false)
                     .frame(width:100)
                 
-                ProgressBarView(size:.regular, progress: 0.5, isRounded: false)
+				ProgressBarView(size:.regular, progress: 0.5, color: .init(UIColor.systemBlue), isRounded: true)
                     .frame(width:150)
                 
-                ProgressBarView(size:.regular, progress: 1.0, isRounded: false)
+                ProgressBarView(size:.regular, progress: 1.0, color: .init(UIColor.systemRed), isRounded: false)
                     .frame(width:200)
                 
-            }.previewLayout(.fixed(width: 250, height: 100))
+			}.background(Rectangle().foregroundColor(.init(UIColor.systemBackground)))
+			.previewLayout(.fixed(width: 250, height: 100))
+				.environment(\.colorScheme, .dark)
         }
     }
 }

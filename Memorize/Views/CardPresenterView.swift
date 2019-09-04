@@ -57,8 +57,6 @@ struct CardPresenterView: View {
 		
 		return VStack {
 			ZStack {
-				
-				
 				//current card
 				CardView(card:session.currentCard, showingAnswer: $showingAnswer)
 				.overlay(
@@ -66,13 +64,13 @@ struct CardPresenterView: View {
 						HStack{
 							Image(systemName: (dragSufficient ? "checkmark.circle.fill" : "checkmark.circle"))
 								.font(.system(size: 100, weight: .bold))
-								.foregroundColor(.green)
+								.foregroundColor(.init(UIColor.systemGreen))
 								.opacity(mapClamp(Double(self.offset.width), a1: 0, a2: Double(dismissOffset), b1: 0, b2: finalMarkOpacity))
 								.padding()
 							Spacer()
 							Image(systemName: (dragSufficient ? "x.circle.fill" : "x.circle"))
 								.font(.system(size: 100, weight: .bold))
-								.foregroundColor(.red)
+								.foregroundColor(.init(UIColor.systemRed))
 								.opacity(mapClamp(Double(-self.offset.width), a1: 0, a2: Double(dismissOffset), b1: 0, b2: finalMarkOpacity))
 								.padding()
 						}.padding()
@@ -89,7 +87,7 @@ struct CardPresenterView: View {
 			}.layoutPriority(1)
 			
 			AnswerView(responder: updateCard(difficulty:), showingAnswer: $showingAnswer)
-		}
+		}.background(Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all))
 	}
 	
 	func mapClamp(_ x:Double, a1:Double, a2:Double, b1:Double, b2:Double) -> Double {
@@ -122,20 +120,20 @@ struct AnswerView: View {
 				
 				Image(systemName: "arrow.turn.up.left")
 					.font(Font.headline.weight(.bold))
-					.foregroundColor(showingAnswer ? .red : .gray)
+					.foregroundColor(showingAnswer ? .init(UIColor.systemRed) : .init(UIColor.systemGray2))
 					.padding(.leading)
 				Text("Wrong")
 					.font(.headline)
-					.foregroundColor(showingAnswer ? .red : .gray)
+					.foregroundColor(showingAnswer ? .init(UIColor.systemRed) : .init(UIColor.systemGray2))
 				
 				Spacer()
 				
 				Text("Correct")
 					.font(.headline)
-					.foregroundColor(showingAnswer ? .green : .gray)
+					.foregroundColor(showingAnswer ? .init(UIColor.systemGreen) : .init(UIColor.systemGray2))
 				Image(systemName: "arrow.turn.up.right")
 					.font(Font.headline.weight(.bold))
-					.foregroundColor(showingAnswer ? .green : .gray)
+					.foregroundColor(showingAnswer ? .init(UIColor.systemGreen) : .init(UIColor.systemGray2))
 					.padding(.trailing)
 			}
 			
@@ -143,7 +141,7 @@ struct AnswerView: View {
 				Button(action: { self.responder(.hard) }) {
 					ZStack {
 						Rectangle()
-							.foregroundColor(showingAnswer ? .orange : .gray)
+							.foregroundColor(showingAnswer ? .init(UIColor.systemOrange) : .init(UIColor.systemGray2))
 						Text("Hard")
 							.font(.headline)
 							.foregroundColor(.white)
@@ -157,7 +155,7 @@ struct AnswerView: View {
 				Button(action: { self.responder(.easy) }) {
 					ZStack {
 						Rectangle()
-							.foregroundColor(showingAnswer ? .blue : .gray)
+							.foregroundColor(showingAnswer ? .init(UIColor.systemIndigo) : .init(UIColor.systemGray2))
 						Text("Easy")
 							.font(.headline)
 							.foregroundColor(.white)
@@ -177,7 +175,11 @@ struct CardPresenterView_Previews: PreviewProvider {
 	static var previews: some View {
 		let testUser = User.testUser(name: "Riley")
 		let session = StudySession(testUser.decks[0].cardsDue)
-		return CardPresenterView(session: session)
+		return Group {
+			CardPresenterView(session: session)
+			CardPresenterView(session: session)
+				.environment(\.colorScheme, .dark)
+		}.environmentObject(testUser)
 	}
 }
 #endif

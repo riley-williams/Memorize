@@ -17,7 +17,7 @@ struct StudySessionView: View {
 			} else {
 				PostSessionStatisticsView(session: session)
 			}
-		}
+		}.background(Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all))
 	}
 	
 	func onAppear() -> some View
@@ -35,7 +35,11 @@ struct StudySessionView: View {
 struct StudySessionView_Previews: PreviewProvider {
 	static var previews: some View {
 		let testUser = User.testUser(name: "Tester")
-		return StudySessionView(cards: testUser.decks[2].cardsDue)
+		return Group {
+			StudySessionView(cards: testUser.decks[2].cardsDue)
+			StudySessionView(cards: testUser.decks[2].cardsDue)
+				.environment(\.colorScheme, .dark)
+		}.environmentObject(testUser)
 	}
 }
 #endif
