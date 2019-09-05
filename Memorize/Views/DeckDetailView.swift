@@ -36,6 +36,7 @@ struct DeckDetailView: View {
 					}
 					HStack {
 						ProgressBarView(size: .regular, progress: deck.mastery, color: .init(UIColor.systemBlue), isRounded: true)
+							.frame(width:120)
 						Text("\(Int(deck.mastery * 100))%")
 							.font(.headline)
 							.foregroundColor(.init(UIColor.label))
