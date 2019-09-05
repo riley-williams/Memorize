@@ -43,10 +43,14 @@ struct DeckRow_Previews: PreviewProvider {
 	static var previews: some View {
 		let user = User.testUser(name: "Riley")
 		return Group {
-			DeckView()
-			DeckView()
-				.colorScheme(.dark)
+			NavigationView {
+				ContainerView()
+			}
+			NavigationView {
+				ContainerView()
+			}.colorScheme(.dark)
 		}
 		.environmentObject(user)
+		.environmentObject(user.rootContainer)
 	}
 }

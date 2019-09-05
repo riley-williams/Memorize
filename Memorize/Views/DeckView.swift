@@ -16,34 +16,29 @@ struct DeckView: View {
 	
 	var body: some View {
 		NavigationView {
-				ScrollView {
-					VStack(spacing:10) {
-						ForEach(user.decks) { deck in
-							NavigationLink(destination:DeckDetailView(deck: deck)) {
-								DeckRow(deck:deck)
-									.padding(.horizontal)
-							}.buttonStyle(PlainButtonStyle())
-						}
-					}
-				}
-				.navigationBarTitle(Text("Decks"))
-					.navigationBarItems(trailing: Button(action: {
-						self.isShowingAddDecksMini.toggle()
-						
-					}) {
-						Text("Add")
-					})
+			ContainerView()
+				.environmentObject(user.rootContainer)
+				.navigationBarItems(trailing: Button(action: {
+					self.isShowingAddDecksMini.toggle()
+					
+				}) {
+					Image(systemName: "plus").font(.headline)
+				})
 		}
 		.popover(isPresented: $isShowingAddFromFiles) {
 			AnkiImportDebugView().environmentObject(self.user)
 		}
 		.sheet(isPresented: $isShowingCreateNewDeck) {
 			CreateNewDeckView(isPresented: self.$isShowingCreateNewDeck).environmentObject(self.user)
-			}
+		}
 		.actionSheet(isPresented: $isShowingAddDecksMini) {
 			ActionSheet(title: Text("New deck"), message: nil, buttons:
-				[.default(Text("Create"), action: { self.isShowingCreateNewDeck = true }),
-				 .default(Text("Add from files"), action: { self.isShowingAddFromFiles = true }),
+				[.default(Text("New Deck"), action:
+					{ self.isShowingCreateNewDeck = true }),
+				 .default(Text("New Container"), action:
+					{ self.user.rootContainer.items.append(Container("New Container")) }),
+				 .default(Text("Add from files"), action:
+					{ self.isShowingAddFromFiles = true }),
 				 .cancel()]
 			)
 		}

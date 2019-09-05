@@ -24,6 +24,8 @@
 		BFA8560722E631590016EE62 /* CardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA8560622E631590016EE62 /* CardFeature.swift */; };
 		BFA8560922E6316A0016EE62 /* ImageFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA8560822E6316A0016EE62 /* ImageFeature.swift */; };
 		BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA8560A22E6317A0016EE62 /* TextFeature.swift */; };
+		E409255D232158DC00FD3221 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = E409255C232158DC00FD3221 /* Container.swift */; };
+		E409255F23215D1C00FD3221 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E409255E23215D1C00FD3221 /* ContainerView.swift */; };
 		E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F63F22F35EF200E7EF93 /* DeckView.swift */; };
 		E411F64222F35F0600E7EF93 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64122F35F0600E7EF93 /* DeckDetailView.swift */; };
 		E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411F64322F35F1700E7EF93 /* CardPresenterView.swift */; };
@@ -111,6 +113,8 @@
 		BFA8560622E631590016EE62 /* CardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFeature.swift; sourceTree = "<group>"; };
 		BFA8560822E6316A0016EE62 /* ImageFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeature.swift; sourceTree = "<group>"; };
 		BFA8560A22E6317A0016EE62 /* TextFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFeature.swift; sourceTree = "<group>"; };
+		E409255C232158DC00FD3221 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		E409255E23215D1C00FD3221 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		E411F63F22F35EF200E7EF93 /* DeckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		E411F64122F35F0600E7EF93 /* DeckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
 		E411F64322F35F1700E7EF93 /* CardPresenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresenterView.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 		BFA8560F22E633000016EE62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E409255C232158DC00FD3221 /* Container.swift */,
 				E453B38C22F786C600F53EB6 /* StudySession.swift */,
 				BFA8560422E631450016EE62 /* User.swift */,
 				BFA8560022E630CA0016EE62 /* Deck.swift */,
@@ -270,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				E411F63F22F35EF200E7EF93 /* DeckView.swift */,
+				E409255E23215D1C00FD3221 /* ContainerView.swift */,
 				E4F24206231E0619006FBF90 /* DeckRow.swift */,
 				E4F2F6232308CEE4005BA61F /* TestUIView.swift */,
 				E411F64122F35F0600E7EF93 /* DeckDetailView.swift */,
@@ -492,6 +498,7 @@
 				E4216295231754DA001FAF45 /* CreateNewDeckView.swift in Sources */,
 				BFA855CB22E62B2B0016EE62 /* AppDelegate.swift in Sources */,
 				BFA8560B22E6317A0016EE62 /* TextFeature.swift in Sources */,
+				E409255F23215D1C00FD3221 /* ContainerView.swift in Sources */,
 				E4F2F62123046969005BA61F /* SelectAnkiModelsView.swift in Sources */,
 				E4E6528E22F9AEB900867DAA /* AddDecksView.swift in Sources */,
 				BFA855FF22E630BB0016EE62 /* Card.swift in Sources */,
@@ -507,6 +514,7 @@
 				E4F2F61F23033437005BA61F /* AnkiImportDebugView.swift in Sources */,
 				E411F64022F35EF200E7EF93 /* DeckView.swift in Sources */,
 				E42CADE422F637C800D51C18 /* CardView.swift in Sources */,
+				E409255D232158DC00FD3221 /* Container.swift in Sources */,
 				E4DAA5D222FB442E000660F2 /* AnkiImporter.swift in Sources */,
 				E453B38D22F786C600F53EB6 /* StudySession.swift in Sources */,
 				E411F64422F35F1700E7EF93 /* CardPresenterView.swift in Sources */,

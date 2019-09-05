@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-class Deck : Identifiable, ObservableObject {
+class Deck : Containerizable, ObservableObject {
 	@Published var name:String
 	@Published var description:String = ""
 	@Published var icon:UIImage = #imageLiteral(resourceName: "Default")
